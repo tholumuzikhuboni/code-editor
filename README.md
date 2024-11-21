@@ -1,5 +1,7 @@
 # Online Code Editor
 
+![Preview Image](./src/images/preview.png)
+
 A sleek and modern online code editor that allows you to write and run HTML, CSS, and JavaScript with live preview. Ideal for quick experiments, learning, or showcasing your web development skills.
 
 ## Features
