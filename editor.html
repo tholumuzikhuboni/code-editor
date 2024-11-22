@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Editor</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="An online code editor where you can write and run HTML, CSS, and JavaScript with live preview. Perfect for quick coding experiments and learning!">
+    <meta name="keywords" content="online code editor, HTML, CSS, JavaScript, code editor, web development, live preview, coding playground">
+    <meta name="author" content="Tholumuzi Khuboni">
+    <meta name="robots" content="index, follow">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <!-- CodeMirror CSS for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/dracula.min.css">
+
+    <!-- Font Awesome for the icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 1200px;
+            padding-top: 30px;
+        }
+        .editor-container {
+            margin-bottom: 15px;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+        .btn-secondary {
+            margin: 5px;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        #consoleOutput {
+            margin-top: 20px;
+            height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f5f5f5;
+            overflow-y: scroll;
+            padding: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header text-center">
+        <h1>Online Code Editor</h1>
+        <p class="lead">Write and run HTML, CSS, and JavaScript with live preview</p>
+    </div>
+
+    <div class="row">
+        <!-- HTML Editor -->
+        <div class="col-md-4">
+            <div class="editor-container">
+                <label for="htmlCode" class="text-muted">HTML Code</label>
+                <textarea id="htmlCode" class="editor" placeholder="Write HTML code here..."></textarea>
+            </div>
+        </div>
+
+        <!-- CSS Editor -->
+        <div class="col-md-4">
+            <div class="editor-container">
+                <label for="cssCode" class="text-muted">CSS Code</label>
+                <textarea id="cssCode" class="editor" placeholder="Write CSS code here..."></textarea>
+            </div>
+        </div>
+
+        <!-- JavaScript Editor -->
+        <div class="col-md-4">
+            <div class="editor-container">
+                <label for="jsCode" class="text-muted">JavaScript Code</label>
+                <textarea id="jsCode" class="editor" placeholder="Write JS code here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!-- Action Buttons -->
+        <div class="col text-center">
+            <button class="btn btn-primary" id="runCode">
+                <i class="fas fa-play"></i> Run Code
+            </button>
+            <button class="btn btn-secondary" id="downloadCode">
+                <i class="fas fa-download"></i> Download Code
+            </button>
+            <button class="btn btn-secondary" id="formatCode">
+                <i class="fas fa-align-left"></i> Format Code
+            </button>
+            <button class="btn btn-secondary" id="saveCode">
+                <i class="fas fa-save"></i> Save Code
+            </button>
+            <button class="btn btn-secondary" id="loadCode">
+                <i class="fas fa-folder-open"></i> Load Code
+            </button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Live Preview -->
+        <div class="col-12">
+            <h3 class="text-center">Live Preview</h3>
+            <iframe id="preview"></iframe>
+        </div>
+    </div>
+
+    <!-- Console Output -->
+    <div class="row mt-3">
+        <div class="col-12">
+            <h4 class="text-center">Console Output</h4>
+            <div id="consoleOutput"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+     <p>
+        <a href="terms.html">Terms</a> 
+        <a href="privacy-policy.html">Policy</a> 
+        <a href="contact-us.html">Contact</a> 
+        <a href="disclaimer.html">Disclaimer</a>
+    </p>
+    <p>© 2024 Tholumuzi. <a href="https://tholumuzi.co.za">All rights reserved.</a></p>
+
+</div>
+
+<!-- Bootstrap JS and custom JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- CodeMirror JS for syntax highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+<!-- JSZip for download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- js-beautify for formatting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js"></script>
+
+<script src="src/app.js"></script>
+
+</body>
+</html>
