@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum - Online Code Editor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f8f9fa;
+        }
+        .forum-section {
+            margin-top: 50px;
+        }
+        .forum-card {
+            margin-bottom: 30px;
+            border: 1px solid #e3e6f0;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .forum-card-header {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+        }
+        .forum-card-body {
+            padding: 20px;
+        }
+        .reply-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .reply-button:hover {
+            background-color: #218838;
+        }
+        .user-name {
+            font-weight: bold;
+        }
+        .user-reply {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #e3e6f0;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .input-group {
+            margin-top: 20px;
+        }
+        .input-group input {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container forum-section">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Community Forum</h1>
+            <p class="lead">Ask questions, share knowledge, and interact with the community</p>
+        </div>
+    </div>
+
+    <!-- Post a New Question -->
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card forum-card">
+                <div class="forum-card-header">
+                    <h4>Post a New Question</h4>
+                </div>
+                <div class="forum-card-body">
+                    <form id="question-form">
+                        <div class="form-group">
+                            <label for="username">Your Name</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="question">Your Question</label>
+                            <textarea class="form-control" id="question" rows="4" placeholder="Describe your question..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Post Question</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forum Questions -->
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <!-- Question 1 -->
+            <div class="card forum-card">
+                <div class="forum-card-header">
+                    <h5>How can I add a hover effect to my button in CSS?</h5>
+                </div>
+                <div class="forum-card-body">
+                    <p><span class="user-name">John Doe</span> asked:</p>
+                    <p>I am trying to create a hover effect on a button but I can't get it to work properly. Can anyone help me?</p>
+
+                    <button class="reply-button" data-toggle="collapse" data-target="#reply1">Reply</button>
+
+                    <!-- Replies -->
+                    <div id="reply1" class="collapse">
+                        <div class="user-reply">
+                            <p><span class="user-name">Jane Smith</span> replied:</p>
+                            <p>To add a hover effect, use the :hover pseudo-class in your CSS. Here's an example:</p>
+                            <pre>
+button:hover {
+    background-color: green;
+    color: white;
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="card forum-card">
+                <div class="forum-card-header">
+                    <h5>How can I center a div in CSS?</h5>
+                </div>
+                <div class="forum-card-body">
+                    <p><span class="user-name">Sarah Lee</span> asked:</p>
+                    <p>I'm struggling to center a div both vertically and horizontally on the page. Any tips?</p>
+
+                    <button class="reply-button" data-toggle="collapse" data-target="#reply2">Reply</button>
+
+                    <!-- Replies -->
+                    <div id="reply2" class="collapse">
+                        <div class="user-reply">
+                            <p><span class="user-name">Mark Davis</span> replied:</p>
+                            <p>You can use flexbox to easily center a div. Here's a simple solution:</p>
+                            <pre>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add More Questions Here -->
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Add more questions dynamically on submit
+    document.getElementById("question-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var question = document.getElementById("question").value;
+
+        // Create new question card
+        var questionCard = `
+            <div class="card forum-card">
+                <div class="forum-card-header">
+                    <h5>${question}</h5>
+                </div>
+                <div class="forum-card-body">
+                    <p><span class="user-name">${username}</span> asked:</p>
+                    <p>${question}</p>
+
+                    <button class="reply-button" data-toggle="collapse" data-target="#reply${Date.now()}">Reply</button>
+
+                    <!-- Replies -->
+                    <div id="reply${Date.now()}" class="collapse">
+                        <div class="user-reply">
+                            <p><span class="user-name">Your name</span> replied:</p>
+                            <p>Write your answer here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Append new question to the forum
+        document.querySelector(".row:last-child").insertAdjacentHTML("beforeend", questionCard);
+
+        // Clear the form
+        document.getElementById("username").value = "";
+        document.getElementById("question").value = "";
+    });
+</script>
+
+</body>
+</html>
