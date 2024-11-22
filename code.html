@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Palette</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f8f9fa;
+        }
+        .code-card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fff;
+        }
+        .code-card h5 {
+            color: #28a745;
+        }
+        pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .btn-copy-code {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-copy-code:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Code Palette</h1>
+            <p class="lead">Explore different code snippets and copy them for your use.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card code-card">
+                <h5>HTML Snippet</h5>
+                <pre id="html-code1">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Simple Page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Welcome to my page!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+                <button class="btn btn-copy-code" onclick="copyCode('html-code1')">Copy Code</button>
+            </div>
+        </div>
+        <!-- HTML5 Audio Embed -->
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>HTML5 Audio Embed</h5>
+        <pre id="html-code5">
+&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mp3"&gt;
+    Your browser does not support the audio tag.
+&lt;/audio&gt;
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('html-code5')">Copy Code</button>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>HTML Table</h5>
+        <pre id="html-code6">
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('html-code6')">Copy Code</button>
+    </div>
+</div>
+
+<!-- CSS Border Radius -->
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>CSS Border Radius</h5>
+        <pre id="css-code5">
+button {
+    background-color: #28a745;
+    color: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('css-code5')">Copy Code</button>
+    </div>
+</div>
+
+<!-- CSS Box Shadow -->
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>CSS Box Shadow</h5>
+        <pre id="css-code6">
+.card {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('css-code6')">Copy Code</button>
+    </div>
+</div>
+
+<!-- CSS Hover Effect -->
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>CSS Hover Effect</h5>
+        <pre id="css-code7">
+a:hover {
+    color: #28a745;
+    text-decoration: underline;
+}
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('css-code7')">Copy Code</button>
+    </div>
+</div>
+
+<!-- JavaScript Toggle Visibility -->
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>JavaScript Toggle Visibility</h5>
+        <pre id="js-code5">
+function toggleVisibility() {
+    var element = document.getElementById("toggleElement");
+    element.style.display = (element.style.display === "none" ? "block" : "none");
+}
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('js-code5')">Copy Code</button>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>JavaScript Array Filter</h5>
+        <pre id="js-code6">
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4]
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('js-code6')">Copy Code</button>
+    </div>
+</div>
+
+<!-- JavaScript Event Listener - Keypress -->
+<div class="col-md-4">
+    <div class="card code-card">
+        <h5>JavaScript Event Listener - Keypress</h5>
+        <pre id="js-code7">
+document.addEventListener("keypress", function(event) {
+    console.log("Key pressed: " + event.key);
+});
+        </pre>
+        <button class="btn btn-copy-code" onclick="copyCode('js-code7')">Copy Code</button>
+    </div>
+</div>
+        <div class="col-md-4">
+            <div class="card code-card">
+                <h5>CSS Snippet</h5>
+                <pre id="css-code1">
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+h1 {
+    color: #28a745;
+}
+                </pre>
+                <button class="btn btn-copy-code" onclick="copyCode('css-code1')">Copy Code</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card code-card">
+                <h5>JavaScript Snippet</h5>
+                <pre id="js-code1">
+console.log("Hello, World!");
+                </pre>
+                <button class="btn btn-copy-code" onclick="copyCode('js-code1')">Copy Code</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card code-card">
+                <h5>CSS Flexbox Example</h5>
+                <pre id="css-code2">
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.item {
+    width: 30%;
+    background-color: #28a745;
+    padding: 10px;
+}
+                </pre>
+                <button class="btn btn-copy-code" onclick="copyCode('css-code2')">Copy Code</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card code-card">
+                <h5>JavaScript DOM Manipulation</h5>
+                <pre id="js-code2">
+document.getElementById("myButton").addEventListener("click", function() {
+    alert("Button clicked!");
+});
+                </pre>
+                <button class="btn btn-copy-code" onclick="copyCode('js-code2')">Copy Code</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card code-card">
+                <h5>HTML Form</h5>
+                <pre id="html-code2">
+&lt;form&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+                </pre>
+                <button class="btn btn-copy-code" onclick="copyCode('html-code2')">Copy Code</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to copy code to clipboard
+    function copyCode(id) {
+        var copyText = document.getElementById(id);
+        var range = document.createRange();
+        range.selectNode(copyText);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        alert("Code copied to clipboard!");
+    }
+</script>
+
+</body>
+</html>
