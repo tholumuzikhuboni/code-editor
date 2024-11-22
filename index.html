@@ -121,6 +121,41 @@
         .footer a:hover {
             text-decoration: underline;
         }
+        
+        .footer {
+    padding: 30px 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer h5 {
+    font-size: 1.2rem;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
 
         /* Responsive Layout for Mobile Devices */
         @media (max-width: 768px) {
@@ -170,18 +205,34 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <p>
-            <a href="/terms.html">Terms</a> 
-            <a href="/privacy-policy.html">Privacy</a> 
-            <a href="/contact-us.html">Contact</a> 
-            <a href="/documentation.html">Documentation</a>
-        </p>
-        <p>© 2024 Tholumuzi | All rights reserved.</p>
-
-        
-    </footer>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Learn More Section -->
+            <div class="col-md-6">
+                <h5>Learn more</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/terms.html">Terms</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/faq.html">FAQ</a></li>
+                    <li><a href="/resources.html">Resources</a></li>
+                    <li><a href="/contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Tools & API Section -->
+            <div class="col-md-6">
+                <h5>Tools & API</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/api.html">API</a></li>
+                    <li><a href="/documentation.html">Documentation</a></li>
+                    <li><a href="/changelog.html">Changelog</a></li>
+                    <li><a href="/disclaimer.html">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center mt-4">© 2024 Tholumuzi | All rights reserved.</p>
+    </div>
+</footer>
 
     <!-- Bootstrap JS and FontAwesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
