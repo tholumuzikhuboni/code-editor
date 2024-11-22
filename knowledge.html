@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base - Online Code Editor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f8f9fa;
+        }
+        .kb-section {
+            margin-top: 40px;
+        }
+        .kb-category {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .kb-title {
+            color: #007bff;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .article-card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container kb-section">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Knowledge Base</h1>
+            <p class="lead">Everything you need to know about using our Online Code Editor</p>
+        </div>
+    </div>
+
+    <div class="row search-bar">
+        <div class="col-md-6 offset-md-3">
+            <input type="text" class="form-control" id="search" placeholder="Search articles...">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="kb-category">Getting Started</div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">How to Create a New Project</h5>
+                    <p class="card-text">Learn how to start a new project in the Online Code Editor, including how to write and test HTML, CSS, and JavaScript.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">Getting Started with HTML</h5>
+                    <p class="card-text">A beginner's guide to writing HTML in our online editor, including tags, structure, and syntax.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="kb-category">Troubleshooting</div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">Code Not Showing Up in Preview?</h5>
+                    <p class="card-text">If your code isn't showing up in the live preview, here are a few steps to resolve the issue.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">How to Fix Syntax Errors</h5>
+                    <p class="card-text">Learn how to identify and fix common syntax errors in HTML, CSS, and JavaScript.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="kb-category">Advanced Topics</div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">Integrating APIs with JavaScript</h5>
+                    <p class="card-text">Explore how to fetch data from APIs using JavaScript and display it in the editor.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">Building a Simple Web App</h5>
+                    <p class="card-text">A step-by-step guide to building a web app with HTML, CSS, and JavaScript using the editor.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="kb-category">User Guides</div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">Customizing Your Code Editor</h5>
+                    <p class="card-text">Learn how to adjust the settings in your code editor to improve your coding experience.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="card article-card">
+                <div class="card-body">
+                    <h5 class="card-title kb-title">Saving & Downloading Code</h5>
+                    <p class="card-text">Instructions on how to save your progress and download your work as a file.</p>
+                    <a href="editor.html" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Basic search functionality (incomplete; add your own search logic)
+    document.getElementById("search").addEventListener("keyup", function() {
+        var query = this.value.toLowerCase();
+        var cards = document.querySelectorAll(".article-card");
+        
+        cards.forEach(function(card) {
+            var title = card.querySelector(".kb-title").textContent.toLowerCase();
+            if (title.includes(query)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
