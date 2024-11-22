@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Online Code Editor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .resources-section {
+            margin-top: 40px;
+        }
+        .resource-card {
+            margin-bottom: 20px;
+        }
+        .resource-card .card-body {
+            background-color: #f8f9fa;
+        }
+        .resource-card .card-header {
+            background-color: #28a745;  /* Green header */
+            color: white;
+        }
+        .resource-card a {
+            color: #28a745;  /* Green link */
+        }
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+        /* Button styling */
+        .btn-primary {
+            background-color: transparent; /* Transparent button */
+            color: #28a745; /* Green text */
+            border: 1px solid #28a745;
+            opacity: 1;  /* Button always visible */
+            transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition */
+        }
+        .btn-primary:hover {
+            background-color: #28a745; /* Green background */
+            color: white; /* White text on hover */
+        }
+        .btn-primary:focus, .btn-primary:active {
+            background-color: #218838; /* Darker green when clicked */
+            border: 1px solid #218838;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container resources-section">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Resources</h1>
+            <p class="lead">Curated resources to help you improve your coding skills</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <!-- Resource 1: MDN Web Docs -->
+            <div class="card resource-card">
+                <div class="card-header">
+                    <h5 class="mb-0">MDN Web Docs</h5>
+                </div>
+                <div class="card-body">
+                    <p>The Mozilla Developer Network offers great documentation and resources for learning HTML, CSS, and JavaScript.</p>
+                    <a href="https://developer.mozilla.org/" target="_blank" class="btn btn-primary">Visit MDN</a>
+                </div>
+            </div>
+
+            <!-- Resource 2: W3Schools -->
+            <div class="card resource-card">
+                <div class="card-header">
+                    <h5 class="mb-0">W3Schools</h5>
+                </div>
+                <div class="card-body">
+                    <p>A popular web development resource with tutorials on HTML, CSS, JavaScript, and more.</p>
+                    <a href="https://www.w3schools.com/" target="_blank" class="btn btn-primary">Visit W3Schools</a>
+                </div>
+            </div>
+
+            <!-- Resource 3: CSS-Tricks -->
+            <div class="card resource-card">
+                <div class="card-header">
+                    <h5 class="mb-0">CSS-Tricks</h5>
+                </div>
+                <div class="card-body">
+                    <p>A great resource for web developers focused on CSS and frontend development techniques.</p>
+                    <a href="https://css-tricks.com/" target="_blank" class="btn btn-primary">Visit CSS-Tricks</a>
+                </div>
+            </div>
+
+            <!-- Resource 4: JavaScript.info -->
+            <div class="card resource-card">
+                <div class="card-header">
+                    <h5 class="mb-0">JavaScript.info</h5>
+                </div>
+                <div class="card-body">
+                    <p>A comprehensive guide for learning JavaScript, with tutorials and examples covering all aspects of the language.</p>
+                    <a href="https://javascript.info/" target="_blank" class="btn btn-primary">Visit JavaScript.info</a>
+                </div>
+            </div>
+
+            <!-- Resource 5: FreeCodeCamp -->
+            <div class="card resource-card">
+                <div class="card-header">
+                    <h5 class="mb-0">FreeCodeCamp</h5>
+                </div>
+                <div class="card-body">
+                    <p>A nonprofit organization that provides free coding lessons and certifications on web development, JavaScript, and more.</p>
+                    <a href="https://www.freecodecamp.org/" target="_blank" class="btn btn-primary">Visit FreeCodeCamp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
