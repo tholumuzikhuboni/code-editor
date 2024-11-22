@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .api-section {
+            margin-top: 40px;
+        }
+        .api-title {
+            font-size: 1.5rem;
+            color: #28a745; /* Changed to green */
+        }
+        pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        .api-description {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .endpoint {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container api-section">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>API Documentation</h1>
+            <p class="lead">Integrate with our Online Code Editor API</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="endpoint">
+                <h2 class="api-title">GET /api/editor</h2>
+                <p class="api-description">This endpoint returns the current state of the code editor including HTML, CSS, and JavaScript.</p>
+                <pre>
+{
+  "html": "<p>Hello World</p>",
+  "css": "p { color: red; }",
+  "javascript": "console.log('Hello');"
+}
+                </pre>
+            </div>
+
+            <div class="endpoint">
+                <h2 class="api-title">POST /api/editor</h2>
+                <p class="api-description">This endpoint saves the user's code (HTML, CSS, and JavaScript) for future use.</p>
+                <pre>
+{
+  "html": "<p>New Code</p>",
+  "css": "p { color: blue; }",
+  "javascript": "console.log('Updated Code');"
+}
+                </pre>
+            </div>
+
+            <!-- Additional Endpoints -->
+            <div class="endpoint">
+                <h2 class="api-title">GET /api/editor/{id}</h2>
+                <p class="api-description">Fetch a saved code snippet by its unique identifier.</p>
+                <pre>
+{
+  "id": "12345",
+  "html": "<div>Hello, User!</div>",
+  "css": "div { color: green; }",
+  "javascript": "console.log('Fetched Saved Code');"
+}
+                </pre>
+            </div>
+
+            <div class="endpoint">
+                <h2 class="api-title">DELETE /api/editor/{id}</h2>
+                <p class="api-description">Delete a specific saved code snippet by its unique identifier.</p>
+                <pre>
+{
+  "message": "Code snippet successfully deleted"
+}
+                </pre>
+            </div>
+
+            <div class="endpoint">
+                <h2 class="api-title">PUT /api/editor/{id}</h2>
+                <p class="api-description">Update an existing saved code snippet by providing the new HTML, CSS, and JavaScript.</p>
+                <pre>
+{
+  "id": "12345",
+  "html": "<p>Updated Code</p>",
+  "css": "p { color: orange; }",
+  "javascript": "console.log('Code Updated');"
+}
+                </pre>
+            </div>
+
+            <div class="endpoint">
+                <h2 class="api-title">GET /api/editor/list</h2>
+                <p class="api-description">Retrieve a list of all saved code snippets.</p>
+                <pre>
+[
+  {
+    "id": "12345",
+    "html": "<p>First Code</p>",
+    "css": "p { color: blue; }",
+    "javascript": "console.log('Code 1');"
+  },
+  {
+    "id": "67890",
+    "html": "<p>Second Code</p>",
+    "css": "p { color: green; }",
+    "javascript": "console.log('Code 2');"
+  }
+]
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
