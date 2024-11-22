@@ -42,7 +42,10 @@ header {
     top: 0;
     z-index: 1000;
 }
-
+/* Add some space at the top of the page to prevent content being hidden under the sticky navbar */
+body {
+    padding-top: 60px; /* Adjust this based on the height of your navbar */
+}
 /* Additional styling for the navbar */
 .navbar {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
