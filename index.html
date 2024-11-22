@@ -201,9 +201,41 @@
                     <h4>Save and Resume</h4>
                     <p>Save your code, resume later, or share your code with others for collaboration.</p>
                 </div>
+                <div class="col-md-4 feature-item">
+    <i class="fas fa-download"></i>
+    <h4>Download Code</h4>
+    <p>Export your HTML, CSS, and JavaScript code to your device as a .zip file for offline use.</p>
+</div>
+<div class="col-md-4 feature-item">
+    <i class="fas fa-align-left"></i>
+    <h4>Format Code</h4>
+    <p>Automatically format your code for better readability and organization with one click.</p>
+</div>
             </div>
         </div>
     </section>
+    <section class="features-section text-center">
+    <div class="container">
+        <h2 class="mb-5">Integrations</h2>
+        <div class="row">
+            <div class="col-md-4 feature-item">
+                <i class="fab fa-github"></i>
+                <h4>GitHub Integration</h4>
+                <p>Sync your projects directly with GitHub repositories for seamless collaboration.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h4>Cloud Storage</h4>
+                <p>Save and load your code files from Google Drive, OneDrive, and Dropbox.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <i class="fas fa-code-branch"></i>
+                <h4>Framework Support</h4>
+                <p>Supports React, Angular, Vue, and more for quick prototyping and testing.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer class="footer">
     <div class="container">
@@ -235,31 +267,103 @@
                 </ul>
             </div>
         </div>
-        <div class="container mt-5">
+       <div class="container mt-5">
     <h2 class="text-center">Sign Up for Our Newsletter</h2>
     <p class="text-center">Stay updated with the latest news and updates.</p>
-    <form action="script" method="POST" class="mt-4">
+    <form action="script" method="POST" class="mt-4" id="newsletterForm">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" and placeholder="Tholumuzi" name="firstName" required>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="firstName" placeholder="Tholumuzi" name="firstName" required>
+                </div>
+                <div class="invalid-feedback">
+                    Please provide your first name.
+                </div>
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Khuboni" name="lastName" required>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="lastName" placeholder="Khuboni" name="lastName" required>
+                </div>
+                <div class="invalid-feedback">
+                    Please provide your last name.
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" required>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" required>
+            </div>
+            <div class="invalid-feedback">
+                Please provide a valid email address.
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                <label class="form-check-label" for="agreeTerms">I agree to receive emails and updates.</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Sign Up
+        </button>
     </form>
-        </div>
-    </div><br>
-    <p>© 2024 Tholumuzi. <a href="https://tholumuzi.co.za">All rights reserved.</a></p>
-    
+    <div class="alert alert-success mt-4 d-none" id="successMessage">
+        Thank you for signing up! We'll keep you updated.
+    </div>
+</div><br>
+
+
+<footer>
+<p class="text-center">© 2024 Tholumuzi. <a href="https://tholumuzi.co.za">All rights reserved.</a></p>
 </footer>
+
+<script>
+    // Add form validation
+    const form = document.getElementById('newsletterForm');
+    const successMessage = document.getElementById('successMessage');
+    const submitButton = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form from submitting immediately
+
+        // Disable submit button and show spinner
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        submitButton.disabled = true;
+
+        // Simulate form submission process (this is where you would handle actual submission)
+        setTimeout(function() {
+            // After successful submission, show success message
+            successMessage.classList.remove('d-none');
+            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Sign Up'; // Reset button text
+            submitButton.disabled = false; // Enable button again
+            form.reset(); // Reset form fields
+        }, 2000);
+    });
+
+    // Simple client-side validation
+    form.addEventListener('input', function() {
+        const inputs = form.querySelectorAll('input');
+        inputs.forEach(input => {
+            if (input.validity.valid) {
+                input.classList.remove('is-invalid');
+            } else {
+                input.classList.add('is-invalid');
+            }
+        });
+    });
+</script>
 
     <!-- Bootstrap JS and FontAwesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
