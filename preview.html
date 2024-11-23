@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Preview Image</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .preview-container {
+            width: 1200px;
+            height: 630px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-title {
+            font-size: 48px;
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .preview-tagline {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .preview-description {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 40px;
+            max-width: 80%;
+        }
+
+        .cta-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        .preview-footer {
+            font-size: 16px;
+            color: #555;
+            margin-top: 30px;
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/triangle.png');
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="background-overlay"></div>
+        <div class="preview-title">Online Code Editor</div>
+        <div class="preview-tagline">Write and run HTML, CSS, and JavaScript with live preview</div>
+        <div class="preview-description">
+            Create, edit, and preview your code in real-time with an easy-to-use interface for developers and learners alike.
+        </div>
+        <a href="#" class="cta-button">Start Coding Now</a>
+        <div class="preview-footer">© 2024 Code Editor</div>
+    </div>
+</body>
+</html>
