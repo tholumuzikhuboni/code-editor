@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An online code editor to write and run HTML, CSS, and JavaScript with live preview. Perfect for quick coding experiments and learning!">
-    <meta name="keywords" content="online code editor, HTML, CSS, JavaScript, web development, coding playground, live preview">
+    <meta name="description"
+        content="An online code editor to write and run HTML, CSS, and JavaScript with live preview. Perfect for quick coding experiments and learning!">
+    <meta name="keywords"
+        content="online code editor, HTML, CSS, JavaScript, web development, coding playground, live preview">
     <meta name="author" content="Tholumuzi Khuboni">
     <meta name="robots" content="index, follow">
-    
-        <!-- Open Graph Meta Tags for Social Media Sharing -->
+
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
     <meta property="og:title" content="Online Code Editor">
-    <meta property="og:description" content="Write and run HTML, CSS, and JavaScript with live preview in this online code editor. Ideal for web developers and learners.">
+    <meta property="og:description"
+        content="Write and run HTML, CSS, and JavaScript with live preview in this online code editor. Ideal for web developers and learners.">
     <meta property="og:image" content="src/images/image.png">
     <meta property="og:url" content="https://editor.tholumuzi.co.za">
     <meta property="og:type" content="website">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Online Code Editor">
-    <meta name="twitter:description" content="An online platform for writing and testing HTML, CSS, and JavaScript code.">
+    <meta name="twitter:description"
+        content="An online platform for writing and testing HTML, CSS, and JavaScript code.">
     <meta name="twitter:image" content="src/images/image.png">
     <meta name="twitter:url" content="https://editor.tholumuzi.co.za">
     <title>Online Code Editor</title>
@@ -28,7 +33,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- FontAwesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -40,30 +45,31 @@
         }
 
         /* Style for the sticky navigation bar */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-/* Add some space at the top of the page to prevent content being hidden under the sticky navbar */
-body {
-    padding-top: 60px; /* Adjust this based on the height of your navbar */
-}
+        /* Add some space at the top of the page to prevent content being hidden under the sticky navbar */
+        body {
+            padding-top: 60px;
+            /* Adjust this based on the height of your navbar */
+        }
 
-/* Additional styling for the navbar */
-.navbar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        /* Additional styling for the navbar */
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.navbar-nav .nav-item .nav-link {
-    font-size: 16px;
-    font-weight: 500;
-}
+        .navbar-nav .nav-item .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-.navbar-nav .nav-item .nav-link:hover {
-    color: #007bff;
-}
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #007bff;
+        }
 
         /* Hero Section */
         .hero-section {
@@ -149,41 +155,41 @@ body {
         .footer a:hover {
             text-decoration: underline;
         }
-        
+
         .footer {
-    padding: 30px 0;
-    background-color: #f8f9fa;
-    border-top: 1px solid #e9ecef;
-}
+            padding: 30px 0;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
 
-.footer h5 {
-    font-size: 1.2rem;
-    color: #343a40;
-    margin-bottom: 20px;
-}
+        .footer h5 {
+            font-size: 1.2rem;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
 
-.footer ul {
-    padding: 0;
-    list-style: none;
-}
+        .footer ul {
+            padding: 0;
+            list-style: none;
+        }
 
-.footer ul li {
-    margin-bottom: 10px;
-}
+        .footer ul li {
+            margin-bottom: 10px;
+        }
 
-.footer ul li a {
-    color: #007bff;
-    text-decoration: none;
-}
+        .footer ul li a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-.footer ul li a:hover {
-    text-decoration: underline;
-}
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
 
-.footer p {
-    font-size: 0.9rem;
-    color: #6c757d;
-}
+        .footer p {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
 
         /* Responsive Layout for Mobile Devices */
         @media (max-width: 768px) {
@@ -201,77 +207,81 @@ body {
 <body>
 
     <!-- Cookie Consent Popup -->
-<div id="cookieConsentPopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cookieConsentLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cookieConsentLabel">We use cookies!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Decline</button>
-        <button type="button" class="btn btn-primary" id="acceptCookies">Accept</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Script to manage cookie consent -->
-<script>
-  // Check if cookie consent is already given
-  if (!localStorage.getItem('cookieConsent')) {
-    $('#cookieConsentPopup').modal('show');
-  }
-
-  // Handle the "Accept" button click
-  document.getElementById('acceptCookies').addEventListener('click', function() {
-    localStorage.setItem('cookieConsent', 'true');
-    $('#cookieConsentPopup').modal('hide');
-  });
-
-  // Handle the "Decline" button click (optional)
-  document.querySelector('.btn-secondary').addEventListener('click', function() {
-    $('#cookieConsentPopup').modal('hide');
-  });
-</script>
-
-    <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="">Code Editor</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="https://editor.tholumuzi.co.za">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="resources.html">Resources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="documentation.html">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact</a>
-                    </li>
-                </ul>
+    <div id="cookieConsentPopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cookieConsentLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cookieConsentLabel">We use cookies!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>We use cookies to improve your experience on our website. By continuing to browse, you agree to
+                        our use of cookies.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Decline</button>
+                    <button type="button" class="btn btn-primary" id="acceptCookies">Accept</button>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Script to manage cookie consent -->
+    <script>
+        // Check if cookie consent is already given
+        if (!localStorage.getItem('cookieConsent')) {
+            $('#cookieConsentPopup').modal('show');
+        }
+
+        // Handle the "Accept" button click
+        document.getElementById('acceptCookies').addEventListener('click', function () {
+            localStorage.setItem('cookieConsent', 'true');
+            $('#cookieConsentPopup').modal('hide');
+        });
+
+        // Handle the "Decline" button click (optional)
+        document.querySelector('.btn-secondary').addEventListener('click', function () {
+            $('#cookieConsentPopup').modal('hide');
+        });
+    </script>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="">Code Editor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://editor.tholumuzi.co.za">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resources.html">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="documentation.html">Documentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <h1>Online Code Editor</h1>
-            <p>Write, run, and experiment with HTML, CSS, and JavaScript code in real-time. Perfect for learning or rapid development!</p>
+            <p>Write, run, and experiment with HTML, CSS, and JavaScript code in real-time. Perfect for learning or
+                rapid development!</p>
             <a href="editor.html" class="cta-btn">Start Coding Now</a>
         </div>
     </section>
@@ -297,362 +307,374 @@ body {
                     <p>Save your code, resume later, or share your code with others for collaboration.</p>
                 </div>
                 <div class="col-md-4 feature-item">
-    <i class="fas fa-download"></i>
-    <h4>Download Code</h4>
-    <p>Export your HTML, CSS, and JavaScript code to your device as a .zip file for offline use.</p>
-</div>
-<div class="col-md-4 feature-item">
-    <i class="fas fa-align-left"></i>
-    <h4>Format Code</h4>
-    <p>Automatically format your code for better readability and organization with one click.</p>
-</div>
-<div class="col-md-4 feature-item">
-    <i class="fas fa-upload"></i>
-    <h4>Load Code</h4>
-    <p>Quickly load previously saved code files and continue editing seamlessly.</p>
-</div>
+                    <i class="fas fa-download"></i>
+                    <h4>Download Code</h4>
+                    <p>Export your HTML, CSS, and JavaScript code to your device as a .zip file for offline use.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-align-left"></i>
+                    <h4>Format Code</h4>
+                    <p>Automatically format your code for better readability and organization with one click.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-upload"></i>
+                    <h4>Load Code</h4>
+                    <p>Quickly load previously saved code files and continue editing seamlessly.</p>
+                </div>
             </div>
         </div>
     </section>
     <section class="features-section text-center">
-    <div class="container">
-        <h2 class="mb-5">Integrations</h2>
-        <div class="row">
-            <div class="col-md-4 feature-item">
-                <i class="fab fa-github"></i>
-                <h4>GitHub Integration</h4>
-                <p>Sync your projects directly with GitHub repositories for seamless collaboration.</p>
-            </div>
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <h4>Cloud Storage</h4>
-                <p>Save and load your code files from Google Drive, OneDrive, and Dropbox.</p>
-            </div>
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-code-branch"></i>
-                <h4>Framework Support</h4>
-                <p>Supports React, Angular, Vue, and more for quick prototyping and testing.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="features-section text-center">
-    <div class="container">
-        <h2 class="mb-5">Success Stories</h2>
-        <div class="row">
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-user-graduate"></i>
-                <h4>Jane Doe</h4>
-                <p>"I used this platform to build my portfolio website in just a week. The live preview feature is a game-changer!"</p>
-            </div>
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-briefcase"></i>
-                <h4>John Smith</h4>
-                <p>"This code editor helped me land my first web development job. It's so easy to use and powerful."</p>
-            </div>
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-lightbulb"></i>
-                <h4>Emily Johnson</h4>
-                <p>"The integrations and ability to collaborate in real-time saved my team countless hours on our startup project."</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="features-section text-center bg-light">
-    <div class="container">
-        <h2 class="mb-5">Our Impact</h2>
-        <div class="row">
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-users"></i>
-                <h4>50,000+</h4>
-                <p>Registered Users</p>
-            </div>
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-project-diagram"></i>
-                <h4>200,000+</h4>
-                <p>Projects Created</p>
-            </div>
-            <div class="col-md-4 feature-item">
-                <i class="fas fa-play"></i>
-                <h4>1,000,000+</h4>
-                <p>Code Runs</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Quick Start Guide Section -->
-<section class="quick-start-guide py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="mb-4">Quick Start Guide</h2>
-        <p class="mb-4">Get started with our code editor in just a few simple steps.</p>
-        <div class="row justify-content-center">
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="bi bi-pencil-fill mb-3 text-success" style="font-size: 40px;"></i>
-                        <h4>Step 1: Write Code</h4>
-                        <p>Open the editor and start writing your HTML, CSS, or JavaScript code in real-time.</p>
-                    </div>
+        <div class="container">
+            <h2 class="mb-5">Integrations</h2>
+            <div class="row">
+                <div class="col-md-4 feature-item">
+                    <i class="fab fa-github"></i>
+                    <h4>GitHub Integration</h4>
+                    <p>Sync your projects directly with GitHub repositories for seamless collaboration.</p>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="bi bi-eye-fill mb-3 text-success" style="font-size: 40px;"></i>
-                        <h4>Step 2: Preview Your Work</h4>
-                        <p>See live changes instantly. Our editor displays your code's result as you type.</p>
-                    </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h4>Cloud Storage</h4>
+                    <p>Save and load your code files from Google Drive, OneDrive, and Dropbox.</p>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="bi bi-cloud-upload-fill mb-3 text-success" style="font-size: 40px;"></i>
-                        <h4>Step 3: Save or Share</h4>
-                        <p>Once you’re done, save your work or share your code with others to collaborate.</p>
-                    </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-code-branch"></i>
+                    <h4>Framework Support</h4>
+                    <p>Supports React, Angular, Vue, and more for quick prototyping and testing.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section class="features-section text-center">
+        <div class="container">
+            <h2 class="mb-5">Success Stories</h2>
+            <div class="row">
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h4>Jane Doe</h4>
+                    <p>"I used this platform to build my portfolio website in just a week. The live preview feature is a
+                        game-changer!"</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>John Smith</h4>
+                    <p>"This code editor helped me land my first web development job. It's so easy to use and powerful."
+                    </p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Emily Johnson</h4>
+                    <p>"The integrations and ability to collaborate in real-time saved my team countless hours on our
+                        startup project."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-section text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Our Impact</h2>
+            <div class="row">
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-users"></i>
+                    <h4>50,000+</h4>
+                    <p>Registered Users</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <h4>200,000+</h4>
+                    <p>Projects Created</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-play"></i>
+                    <h4>1,000,000+</h4>
+                    <p>Code Runs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Quick Start Guide Section -->
+    <section class="quick-start-guide py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Quick Start Guide</h2>
+            <p class="mb-4">Get started with our code editor in just a few simple steps.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-pencil-fill mb-3 text-success" style="font-size: 40px;"></i>
+                            <h4>Step 1: Write Code</h4>
+                            <p>Open the editor and start writing your HTML, CSS, or JavaScript code in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-eye-fill mb-3 text-success" style="font-size: 40px;"></i>
+                            <h4>Step 2: Preview Your Work</h4>
+                            <p>See live changes instantly. Our editor displays your code's result as you type.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cloud-upload-fill mb-3 text-success" style="font-size: 40px;"></i>
+                            <h4>Step 3: Save or Share</h4>
+                            <p>Once you’re done, save your work or share your code with others to collaborate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Learning Hub Section -->
-<section class="learning-hub py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="mb-4">Learning Hub</h2>
-        <p class="mb-4">Explore tutorials and resources to enhance your skills.</p>
-        <div class="row justify-content-center">
-            <!-- Card 1 - Link to External Learning Platform -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="bi bi-laptop mb-3 text-success" style="font-size: 40px;"></i>
-                        <h4>Tutorial 1: Frontend Development</h4>
-                        <p>Learn the basics of frontend web development, HTML, CSS, and JavaScript.</p>
-                        <a href="https://www.udemy.com/course/frontend-web-development/" target="_blank" class="btn btn-primary">Start Learning</a>
+    <!-- Learning Hub Section -->
+    <section class="learning-hub py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Learning Hub</h2>
+            <p class="mb-4">Explore tutorials and resources to enhance your skills.</p>
+            <div class="row justify-content-center">
+                <!-- Card 1 - Link to External Learning Platform -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-laptop mb-3 text-success" style="font-size: 40px;"></i>
+                            <h4>Tutorial 1: Frontend Development</h4>
+                            <p>Learn the basics of frontend web development, HTML, CSS, and JavaScript.</p>
+                            <a href="https://www.udemy.com/course/frontend-web-development/" target="_blank"
+                                class="btn btn-primary">Start Learning</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card 2 - Link to External Learning Platform -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="bi bi-code-slash mb-3 text-success" style="font-size: 40px;"></i>
-                        <h4>Tutorial 2: Backend Development</h4>
-                        <p>Explore server-side programming, databases, and APIs.</p>
-                        <a href="https://www.coursera.org/learn/backend-development" target="_blank" class="btn btn-primary">Start Learning</a>
+                <!-- Card 2 - Link to External Learning Platform -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-code-slash mb-3 text-success" style="font-size: 40px;"></i>
+                            <h4>Tutorial 2: Backend Development</h4>
+                            <p>Explore server-side programming, databases, and APIs.</p>
+                            <a href="https://www.coursera.org/learn/backend-development" target="_blank"
+                                class="btn btn-primary">Start Learning</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card 3 - Link to External Learning Platform -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="bi bi-cloud mb-3 text-success" style="font-size: 40px;"></i>
-                        <h4>Tutorial 3: Cloud Computing</h4>
-                        <p>Understand the fundamentals of cloud services, deployment, and architecture.</p>
-                        <a href="https://www.linkedin.com/learning/cloud-computing" target="_blank" class="btn btn-primary">Start Learning</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Top User Section -->
-<section class="top-user py-5">
-    <div class="container text-center">
-        <h2 class="mb-4">Top Users</h2>
-        <p class="mb-4">These users are leading the way with their contributions!</p>
-        <div class="row justify-content-center">
-            <!-- User Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-lg hover-shadow-lg">
-                    <div class="card-body text-center">
-                        <!-- Icon for user -->
-                        <i class="fas fa-user-tie fa-4x mb-3 text-success"></i>
-                        <h4 class="card-title font-weight-bold">John Doe</h4>
-                        <p class="card-text text-muted">Top Contributor</p>
-                        <span class="badge bg-success mb-3">Level 5</span>
-                        <p class="font-weight-bold">Points: 1200</p>
-                    </div>
-                </div>
-            </div>
-            <!-- User Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-lg hover-shadow-lg">
-                    <div class="card-body text-center">
-                        <!-- Icon for user -->
-                        <i class="fas fa-star fa-4x mb-3 text-primary"></i>
-                        <h4 class="card-title font-weight-bold">Jane Smith</h4>
-                        <p class="card-text text-muted">Expert Contributor</p>
-                        <span class="badge bg-primary mb-3">Level 4</span>
-                        <p class="font-weight-bold">Points: 1100</p>
-                    </div>
-                </div>
-            </div>
-            <!-- User Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-lg hover-shadow-lg">
-                    <div class="card-body text-center">
-                        <!-- Icon for user -->
-                        <i class="fas fa-trophy fa-4x mb-3 text-warning"></i>
-                        <h4 class="card-title font-weight-bold">Mark Brown</h4>
-                        <p class="card-text text-muted">Active Contributor</p>
-                        <span class="badge bg-warning mb-3">Level 3</span>
-                        <p class="font-weight-bold">Points: 950</p>
+                <!-- Card 3 - Link to External Learning Platform -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cloud mb-3 text-success" style="font-size: 40px;"></i>
+                            <h4>Tutorial 3: Cloud Computing</h4>
+                            <p>Understand the fundamentals of cloud services, deployment, and architecture.</p>
+                            <a href="https://www.linkedin.com/learning/cloud-computing" target="_blank"
+                                class="btn btn-primary">Start Learning</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Custom CSS for Hover Effect -->
-<style>
-    .hover-shadow-lg:hover {
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        transform: translateY(-5px);
-        transition: all 0.3s ease-in-out;
-    }
-</style>
-
-<!-- Font Awesome for Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <!-- Learn More Section -->
-            <div class="col-md-6">
-                <h5>Learn more</h5>
-                <ul class="list-unstyled">
-                    <li><a href="/terms.html">Terms</a></li>
-                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="/faq.html">FAQ</a></li>
-                    <li><a href="/resources.html">Resources</a></li>
-                    <li><a href="/plans.html">Pricing</a></li>
-                    <li><a href="/contact-us.html">Contact Us</a></li>
-                    <li><a href="/knowledge.html">Knowledge Base</a></li>
-                </ul>
-            </div>
-            <!-- Tools & API Section -->
-            <div class="col-md-6">
-                <h5>Tools & API</h5>
-                <ul class="list-unstyled">
-                    <li><a href="/api.html">API</a></li>
-                    <li><a href="/documentation.html">Documentation</a></li>
-                    <li><a href="/changelog.html">Changelog</a></li>
-                    <li><a href="/disclaimer.html">Disclaimer</a></li>
-                    <li><a href="/community.html">Community</a></li>
-                    <li><a href="/code.html">Code Palette</a></li>
-                    <li><a href="/challenges.html">Code Challenges</a></li>
-                </ul>
-            </div>
-        </div>
-       <div class="container mt-5">
-    <h2 class="text-center">Sign Up for Our Newsletter</h2>
-    <p class="text-center">Stay updated with the latest news and updates.</p>
-    <form action="script" method="POST" class="mt-4" id="newsletterForm">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="firstName">First Name</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+    </section>
+    <!-- Top User Section -->
+    <section class="top-user py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Top Users</h2>
+            <p class="mb-4">These users are leading the way with their contributions!</p>
+            <div class="row justify-content-center">
+                <!-- User Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg hover-shadow-lg">
+                        <div class="card-body text-center">
+                            <!-- Icon for user -->
+                            <i class="fas fa-user-tie fa-4x mb-3 text-success"></i>
+                            <h4 class="card-title font-weight-bold">John Doe</h4>
+                            <p class="card-text text-muted">Top Contributor</p>
+                            <span class="badge bg-success mb-3">Level 5</span>
+                            <p class="font-weight-bold">Points: 1200</p>
+                        </div>
                     </div>
-                    <input type="text" class="form-control" id="firstName" placeholder="Tholumuzi" name="firstName" required>
                 </div>
-                <div class="invalid-feedback">
-                    Please provide your first name.
-                </div>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="lastName">Last Name</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <!-- User Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg hover-shadow-lg">
+                        <div class="card-body text-center">
+                            <!-- Icon for user -->
+                            <i class="fas fa-star fa-4x mb-3 text-primary"></i>
+                            <h4 class="card-title font-weight-bold">Jane Smith</h4>
+                            <p class="card-text text-muted">Expert Contributor</p>
+                            <span class="badge bg-primary mb-3">Level 4</span>
+                            <p class="font-weight-bold">Points: 1100</p>
+                        </div>
                     </div>
-                    <input type="text" class="form-control" id="lastName" placeholder="Khuboni" name="lastName" required>
                 </div>
-                <div class="invalid-feedback">
-                    Please provide your last name.
+                <!-- User Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-lg hover-shadow-lg">
+                        <div class="card-body text-center">
+                            <!-- Icon for user -->
+                            <i class="fas fa-trophy fa-4x mb-3 text-warning"></i>
+                            <h4 class="card-title font-weight-bold">Mark Brown</h4>
+                            <p class="card-text text-muted">Active Contributor</p>
+                            <span class="badge bg-warning mb-3">Level 3</span>
+                            <p class="font-weight-bold">Points: 950</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                </div>
-                <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" required>
-            </div>
-            <div class="invalid-feedback">
-                Please provide a valid email address.
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-                <label class="form-check-label" for="agreeTerms">I agree to receive emails and updates.</label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-            <i class="fas fa-paper-plane"></i> Sign Up
-        </button>
-    </form>
-    <div class="alert alert-success mt-4 d-none" id="successMessage">
-        Thank you for signing up! We'll keep you updated.
-    </div>
-</div>
+    </section>
 
-<footer class="footer mt-5 bg-light py-3">
-    <div class="container text-center">
-        <p class="mb-0">Copyright © 2024 Code Editor. <a href="https://tholumuzi.co.za">All rights reserved.</a></p>
-    </div>
-</footer>
+    <!-- Custom CSS for Hover Effect -->
+    <style>
+        .hover-shadow-lg:hover {
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 
-<script>
-    // Add form validation
-    const form = document.getElementById('newsletterForm');
-    const successMessage = document.getElementById('successMessage');
-    const submitButton = document.getElementById('submitBtn');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent form from submitting immediately
-
-        // Disable submit button and show spinner
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-        submitButton.disabled = true;
-
-        // Simulate form submission process (this is where you would handle actual submission)
-        setTimeout(function() {
-            // After successful submission, show success message
-            successMessage.classList.remove('d-none');
-            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Sign Up'; // Reset button text
-            submitButton.disabled = false; // Enable button again
-            form.reset(); // Reset form fields
-        }, 2000);
-    });
-
-    // Simple client-side validation
-    form.addEventListener('input', function() {
-        const inputs = form.querySelectorAll('input');
-        inputs.forEach(input => {
-            if (input.validity.valid) {
-                input.classList.remove('is-invalid');
-            } else {
-                input.classList.add('is-invalid');
-            }
-        });
-    });
-</script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap JS and FontAwesome for icons -->
+    <!-- Font Awesome for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Learn More Section -->
+                <div class="col-md-6">
+                    <h5>Learn more</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/terms.html">Terms</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/faq.html">FAQ</a></li>
+                        <li><a href="/resources.html">Resources</a></li>
+                        <li><a href="/plans.html">Pricing</a></li>
+                        <li><a href="/contact-us.html">Contact Us</a></li>
+                        <li><a href="/knowledge.html">Knowledge Base</a></li>
+                    </ul>
+                </div>
+                <!-- Tools & API Section -->
+                <div class="col-md-6">
+                    <h5>Tools & API</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/api.html">API</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/changelog.html">Changelog</a></li>
+                        <li><a href="/disclaimer.html">Disclaimer</a></li>
+                        <li><a href="/community.html">Community</a></li>
+                        <li><a href="/code.html">Code Palette</a></li>
+                        <li><a href="/challenges.html">Code Challenges</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container mt-5">
+                <h2 class="text-center">Sign Up for Our Newsletter</h2>
+                <p class="text-center">Stay updated with the latest news and updates.</p>
+                <form action="script" method="POST" class="mt-4" id="newsletterForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First Name</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="firstName" placeholder="Tholumuzi"
+                                    name="firstName" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide your first name.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="lastName" placeholder="Khuboni"
+                                    name="lastName" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide your last name.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="example@example.com" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">I agree to receive emails and
+                                updates.</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Sign Up
+                    </button>
+                </form>
+                <div class="alert alert-success mt-4 d-none" id="successMessage">
+                    Thank you for signing up! We'll keep you updated.
+                </div>
+            </div>
+
+            <footer class="footer mt-5 bg-light py-3">
+                <div class="container text-center">
+                    <p class="mb-0">Copyright © 2024 Code Editor. <a href="https://tholumuzi.co.za">All rights
+                            reserved.</a></p>
+                </div>
+            </footer>
+
+            <script>
+                // Add form validation
+                const form = document.getElementById('newsletterForm');
+                const successMessage = document.getElementById('successMessage');
+                const submitButton = document.getElementById('submitBtn');
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Prevent form from submitting immediately
+
+                    // Disable submit button and show spinner
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                    submitButton.disabled = true;
+
+                    // Simulate form submission process (this is where you would handle actual submission)
+                    setTimeout(function () {
+                        // After successful submission, show success message
+                        successMessage.classList.remove('d-none');
+                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Sign Up'; // Reset button text
+                        submitButton.disabled = false; // Enable button again
+                        form.reset(); // Reset form fields
+                    }, 2000);
+                });
+
+                // Simple client-side validation
+                form.addEventListener('input', function () {
+                    const inputs = form.querySelectorAll('input');
+                    inputs.forEach(input => {
+                        if (input.validity.valid) {
+                            input.classList.remove('is-invalid');
+                        } else {
+                            input.classList.add('is-invalid');
+                        }
+                    });
+                });
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap JS and FontAwesome for icons -->
+            <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
