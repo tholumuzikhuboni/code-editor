@@ -77,9 +77,107 @@
             font-size: 14px;
             color: #333;
         }
+        
+        #submit-project {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+#submit-project h2 {
+    color: #333;
+    font-weight: bold;
+}
+
+#submit-project .form-group label {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.custom-file-input:focus + .custom-file-label {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.custom-file-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #f5f5f5;
+    border: 1px solid #ced4da;
+    color: #6c757d;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.custom-file-input {
+    cursor: pointer;
+}
+
+.custom-file-input:hover + .custom-file-label,
+.custom-file-input:focus + .custom-file-label {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+textarea {
+    font-family: monospace;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+#projectSubmissionStatus {
+    font-size: 1rem;
+    color: #28a745;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
     </style>
 </head>
 <body>
+<!-- Navbar (Sticky) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="#">Code Editor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#editor-section">Editor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tutorials-section">Tutorials</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about-section">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="container">
     <div class="header text-center">
         <h1>Online Code Editor</h1>
@@ -133,7 +231,7 @@
         </div>
     </div>
 
-    <div class="row mt-4">
+<div class="row mt-4">
         <!-- Live Preview -->
         <div class="col-12">
             <h3 class="text-center">Live Preview</h3>
@@ -141,19 +239,194 @@
         </div>
     </div>
 
-    <!-- Console Output -->
-    <div class="row mt-3">
-        <div class="col-12">
-            <h4 class="text-center">Console Output</h4>
-            <div id="consoleOutput"></div>
+<!-- Console Output -->
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4 class="text-center">
+                    <i class="fas fa-terminal" style="color: #28a745; margin-right: 10px;"></i>
+                    Console Output
+                </h4>
+                <div id="consoleOutput" style="background-color: #222; color: white; padding: 20px; border-radius: 8px; min-height: 150px;"></div>
+            </div>
         </div>
     </div>
 </div>
+<section id="code-tutorials" class="features-section py-5">
+    <div class="container text-center">
+        <h2 class="mb-5">Basic Code Tutorials</h2>
+        <div class="row">
+            <!-- Tutorial 1: HTML Basics -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                        <h5 class="card-title">HTML Basics</h5>
+                        <p class="card-text">Learn the fundamentals of HTML, the backbone of web development. Create your first web page.</p>
+                        <a href="#" class="btn btn-primary">Start Tutorial</a>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Tutorial 2: CSS Basics -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-paint-brush fa-3x mb-3 text-warning"></i>
+                        <h5 class="card-title">CSS Basics</h5>
+                        <p class="card-text">Master the art of styling web pages using CSS. Learn how to make your websites look beautiful and responsive.</p>
+                        <a href="#" class="btn btn-warning">Start Tutorial</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutorial 3: JavaScript Basics -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-terminal fa-3x mb-3 text-success"></i>
+                        <h5 class="card-title">JavaScript Basics</h5>
+                        <p class="card-text">Get started with JavaScript to add interactivity to your websites. Learn basic programming concepts and functions.</p>
+                        <a href="#" class="btn btn-success">Start Tutorial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row for Advanced Tutorials -->
+        <div class="row mt-5">
+            <!-- Tutorial 4: Responsive Web Design -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-laptop-code fa-3x mb-3 text-info"></i>
+                        <h5 class="card-title">Responsive Web Design</h5>
+                        <p class="card-text">Learn how to make your website look great on all devices using responsive web design techniques with CSS.</p>
+                        <a href="#" class="btn btn-info">Start Tutorial</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutorial 5: Web Accessibility -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-universal-access fa-3x mb-3 text-danger"></i>
+                        <h5 class="card-title">Web Accessibility</h5>
+                        <p class="card-text">Learn about web accessibility standards to make your websites usable for everyone, including people with disabilities.</p>
+                        <a href="#" class="btn btn-danger">Start Tutorial</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutorial 6: Web Performance Optimization -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tachometer-alt fa-3x mb-3 text-dark"></i>
+                        <h5 class="card-title">Web Performance Optimization</h5>
+                        <p class="card-text">Learn how to optimize your website's speed and performance, ensuring it loads quickly and runs smoothly.</p>
+                        <a href="#" class="btn btn-dark">Start Tutorial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this to your CSS or in the <style> tag -->
+<style>
+    #code-tutorials {
+        background-color: #f9f9f9;
+    }
+
+    #code-tutorials .card {
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #code-tutorials .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #code-tutorials .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    #code-tutorials .card-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    #code-tutorials .btn {
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    #code-tutorials .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+<section id="submit-project" class="features-section mt-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Submit Your Project Code</h2>
+        <p class="lead text-muted">Submit your project created with our editor and stand a chance to win the Pro version!</p>
+        <form id="projectSubmissionForm" class="mt-4">
+            <!-- HTML Code Input -->
+            <div class="form-group">
+                <label for="projectHtml" class="d-flex align-items-center">
+                    <i class="fas fa-code mr-2 text-success"></i> HTML Code:
+                </label>
+                <textarea id="projectHtml" class="form-control" rows="6" placeholder="Paste your HTML code here..."></textarea>
+            </div>
+
+            <!-- CSS Code Input -->
+            <div class="form-group">
+                <label for="projectCss" class="d-flex align-items-center">
+                    <i class="fas fa-paint-brush mr-2 text-primary"></i> CSS Code:
+                </label>
+                <textarea id="projectCss" class="form-control" rows="6" placeholder="Paste your CSS code here..."></textarea>
+            </div>
+
+            <!-- JS Code Input -->
+            <div class="form-group">
+                <label for="projectJs" class="d-flex align-items-center">
+                    <i class="fas fa-cogs mr-2 text-warning"></i> JavaScript Code:
+                </label>
+                <textarea id="projectJs" class="form-control" rows="6" placeholder="Paste your JavaScript code here..."></textarea>
+            </div>
+
+            <!-- Upload ZIP File -->
+            <div class="form-group">
+                <label for="projectZip" class="d-flex align-items-center">
+                    <i class="fas fa-file-archive mr-2 text-danger"></i> Or Upload Your Project as a ZIP File:
+                </label>
+                <div class="custom-file">
+                    <input type="file" id="projectZip" class="custom-file-input" accept=".zip">
+                    <label class="custom-file-label" for="projectZip">Choose ZIP file...</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-success btn-block mt-4">
+                <i class="fas fa-paper-plane"></i> Submit Your Project
+            </button>
+        </form>
+
+        <!-- Submission Status -->
+        <div id="projectSubmissionStatus" class="mt-4"></div>
+    </div>
+</section>
 <!-- Footer -->
 <div class="footer">
     
-    <p>© 2024 Tholumuzi. <a href="https://tholumuzi.co.za">All rights reserved.</a></p>
+    <p>© 2024 Code Editor <a href="https://tholumuzi.co.za">All rights reserved.</a></p>
 
 </div>
 
@@ -175,7 +448,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-css.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="src/app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
