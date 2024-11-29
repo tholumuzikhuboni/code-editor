@@ -42,16 +42,12 @@
         <h3 class="text-center mb-4">Signup</h3>
         <form id="signupForm">
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
             </div>
             <button type="submit" class="btn btn-success btn-block">Sign Up</button>
             <p class="text-center mt-3">
@@ -59,52 +55,10 @@
             </p>
         </form>
     </div>
-
-    <!-- Firebase SDK (v9+) -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-
-    <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
-            authDomain: "code-editor-efd72.firebaseapp.com",
-            projectId: "code-editor-efd72",
-            storageBucket: "code-editor-efd72.firebasestorage.app",
-            messagingSenderId: "28165650101",
-            appId: "1:28165650101:web:16c852e94780ac5f11b0fc",
-            measurementId: "G-82HBJ4TR9S"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-
-        // Handle form submission
-        document.getElementById('signupForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const name = document.getElementById('name').value;
-
-            // Firebase sign up
-            auth.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    // Update profile with display name
-                    return user.updateProfile({ displayName: name });
-                })
-                .then(() => {
-                    // Redirect after successful sign-up
-                    alert("Account created successfully!");
-                    window.location.href = 'login.html';  // Redirect to login page
-                })
-                .catch((error) => {
-                    alert("Error: " + error.message);
-                });
-        });
-    </script>
+    <script type="module" src="./auth.js"></script>
+    <script type="module" src="./scripts/signup.js"></script>
 </body>
 
 </html>
