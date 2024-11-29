@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Online Code Editor</title>
+    <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
@@ -59,7 +60,55 @@
             </p>
         </form>
     </div>
-    <script src="./scripts/signup.js" type="module"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script>
+        // Firebase config
+        const firebaseConfig = {
+  apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
+  authDomain: "code-editor-efd72.firebaseapp.com",
+  projectId: "code-editor-efd72",
+  storageBucket: "code-editor-efd72.firebasestorage.app",
+  messagingSenderId: "28165650101",
+  appId: "1:28165650101:web:16c852e94780ac5f11b0fc",
+  measurementId: "G-82HBJ4TR9S"
+};
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Handle form submission
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const name = document.getElementById('name').value;
+
+            // Sign up user with Firebase
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // User signed up successfully
+                    const user = userCredential.user;
+                    // Update user profile with name
+                    user.updateProfile({
+                        displayName: name
+                    }).then(() => {
+                        // Redirect to login page or show success message
+                        alert('Account created successfully');
+                        window.location.href = 'login.html';
+                    }).catch((error) => {
+                        console.error("Error updating profile: ", error);
+                    });
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Error: ", errorCode, errorMessage);
+                    alert("Signup failed: " + errorMessage);
+                });
+        });
+    </script>
 </body>
 
 </html>
