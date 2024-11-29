@@ -20,8 +20,9 @@ export const auth = getAuth(app);
 export async function registerUser(email, password) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log("Signup successful:", userCredential); // Debugging line
         alert("Signup successful!");
-        window.location.href = "dashboard.html"; // Redirect to dashboard
+        window.location.href = "dashboard.html"; // Ensure redirection
     } catch (error) {
         console.error("Signup error:", error.message);
         alert(error.message);
@@ -32,8 +33,9 @@ export async function registerUser(email, password) {
 export async function loginUser(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("Login successful:", userCredential); // Debugging line
         alert("Login successful!");
-        window.location.href = "dashboard.html"; // Redirect to dashboard
+        window.location.href = "dashboard.html"; // Ensure redirection
     } catch (error) {
         console.error("Login error:", error.message);
         alert(error.message);
