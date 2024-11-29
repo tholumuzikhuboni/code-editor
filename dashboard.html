@@ -15,7 +15,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Consistent font and background */
         body {
             font-family: 'Roboto Mono', monospace;
             background-color: #f8f9fa;
@@ -44,6 +43,12 @@
             color: #007bff;
         }
 
+        .navbar-toggler {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .navbar-nav {
             list-style: none;
             display: flex;
@@ -66,7 +71,34 @@
             color: #007bff;
         }
 
-        /* Main content */
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-nav {
+                display: none;
+                flex-direction: column;
+                background-color: #fff;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+            }
+
+            .navbar-nav.active {
+                display: flex;
+            }
+
+            .navbar-nav li {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
         .dashboard-container {
             padding: 20px;
             max-width: 1200px;
@@ -119,7 +151,6 @@
             color: #6c757d;
         }
 
-        /* Logout button */
         #logoutButton {
             display: block;
             margin: 30px auto 0;
@@ -142,6 +173,7 @@
     <header>
         <nav class="navbar">
             <a class="navbar-brand" href="index.html">Code Editor</a>
+            <i class="fas fa-bars navbar-toggler" onclick="toggleMenu()"></i>
             <ul class="navbar-nav">
                 <li><a href="dashboard.html">Dashboard</a></li>
                 <li><a href="editor.html">Editor</a></li>
@@ -191,7 +223,12 @@
         <button id="logoutButton">Logout</button>
     </main>
 
-    <script src="./scripts/dashboard.js" type="module"></script>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.navbar-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
