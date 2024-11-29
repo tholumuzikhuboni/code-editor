@@ -1,7 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
 
-// Firebase config
 const firebaseConfig = {
     apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
     authDomain: "code-editor-efd72.firebaseapp.com",
@@ -14,7 +13,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 console.log("Firebase initialized:", app); // Debugging statement
 
