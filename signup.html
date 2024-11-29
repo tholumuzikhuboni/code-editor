@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Online Code Editor</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
 </head>
@@ -34,18 +34,18 @@
     <script>
         // Firebase configuration
         const firebaseConfig = {
-  apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
-  authDomain: "code-editor-efd72.firebaseapp.com",
-  projectId: "code-editor-efd72",
-  storageBucket: "code-editor-efd72.firebasestorage.app",
-  messagingSenderId: "28165650101",
-  appId: "1:28165650101:web:16c852e94780ac5f11b0fc",
-  measurementId: "G-82HBJ4TR9S"
-};
-
+            apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
+            authDomain: "code-editor-efd72.firebaseapp.com",
+            projectId: "code-editor-efd72",
+            storageBucket: "code-editor-efd72.firebasestorage.app",
+            messagingSenderId: "28165650101",
+            appId: "1:28165650101:web:16c852e94780ac5f11b0fc",
+            measurementId: "G-82HBJ4TR9S"
+        };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
         // Handle form submission
         document.getElementById('signupForm').addEventListener('submit', function (e) {
@@ -56,7 +56,7 @@
             const name = document.getElementById('name').value;
 
             // Firebase sign up
-            firebase.auth().createUserWithEmailAndPassword(email, password)
+            auth.createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     // Update profile with display name
