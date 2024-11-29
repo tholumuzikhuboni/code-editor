@@ -9,7 +9,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
@@ -85,12 +84,12 @@
         <h1>Login</h1>
         <form id="loginForm">
             <div class="form-group">
-                <label for="loginEmail">Email Address</label>
-                <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
             <a href="forgot-password.html" class="forgot-password">Forgot my password</a>
@@ -99,10 +98,9 @@
             Don't have an account? <a href="signup.html">Sign Up</a>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-    <script type="module" src="./auth.js"></script>
     <script type="module" src="./scripts/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
