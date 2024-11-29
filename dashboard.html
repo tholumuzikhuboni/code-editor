@@ -13,96 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: 'Roboto Mono', monospace;
             background-color: #f8f9fa;
             margin: 0;
-        }
-
-        /* Sticky navigation bar */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        .navbar-toggler {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .navbar-nav {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar-nav li {
-            margin-left: 15px;
-        }
-
-        .navbar-nav a {
-            text-decoration: none;
-            color: #343a40;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .navbar-nav a:hover {
-            color: #007bff;
-        }
-
-        /* Mobile view */
-        @media (max-width: 768px) {
-            .navbar-toggler {
-                display: block;
-            }
-
-            .navbar-nav {
-                display: none;
-                flex-direction: column;
-                background-color: #fff;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 100%;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 10px 0;
-            }
-
-            .navbar-nav.active {
-                display: flex;
-            }
-
-            .navbar-nav li {
-                margin: 10px 0;
-                text-align: center;
-            }
-        }
-
-        .dashboard-container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         h1 {
@@ -170,19 +88,27 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <header>
-        <nav class="navbar">
-            <a class="navbar-brand" href="index.html">Code Editor</a>
-            <i class="fas fa-bars navbar-toggler" onclick="toggleMenu()"></i>
-            <ul class="navbar-nav">
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="editor.html">Editor</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Code Editor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editor.html">Editor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="dashboard-container">
         <h1>Welcome to Code Editor</h1>
         <p class="welcome-message" id="welcomeMessage">Loading...</p>
@@ -223,11 +149,17 @@
         <button id="logoutButton">Logout</button>
     </main>
 
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('.navbar-nav');
-            nav.classList.toggle('active');
-        }
+        // Simulate fetching the user's email
+        document.addEventListener("DOMContentLoaded", () => {
+            const userEmail = "user@example.com"; 
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.textContent = `Welcome back, ${userEmail}!`;
+        });
     </script>
 </body>
 
