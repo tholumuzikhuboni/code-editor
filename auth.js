@@ -14,18 +14,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
+
+console.log("Firebase initialized:", app); // Debugging statement
 
 // Register user
 export async function registerUser(email, password) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("Signup successful:", userCredential); // Debugging line
+        console.log("Signup successful:", userCredential);
         alert("Signup successful!");
-        window.location.href = "dashboard.html"; // Ensure redirection
+        window.location.href = "dashboard.html"; // Redirect after signup
     } catch (error) {
         console.error("Signup error:", error.message);
-        alert(error.message);
+        alert(error.message); // Show error message
     }
 }
 
@@ -33,12 +35,12 @@ export async function registerUser(email, password) {
 export async function loginUser(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("Login successful:", userCredential); // Debugging line
+        console.log("Login successful:", userCredential); // Debugging statement
         alert("Login successful!");
-        window.location.href = "dashboard.html"; // Ensure redirection
+        window.location.href = "dashboard.html"; // Redirect after login
     } catch (error) {
         console.error("Login error:", error.message);
-        alert(error.message);
+        alert(error.message); // Show error message
     }
 }
 
@@ -50,7 +52,7 @@ export async function logoutUser() {
         window.location.href = "index.html"; // Redirect to home page
     } catch (error) {
         console.error("Logout error:", error.message);
-        alert(error.message);
+        alert(error.message); // Show error message
     }
 }
 
