@@ -9,13 +9,187 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Consistent font and background */
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        /* Sticky navigation bar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 15px;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: #343a40;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .navbar-nav a:hover {
+            color: #007bff;
+        }
+
+        /* Main content */
+        .dashboard-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message {
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #6c757d;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1 1 calc(33.333% - 20px);
+            margin: 10px;
+            text-align: center;
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+        }
+
+        /* Logout button */
+        #logoutButton {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #logoutButton:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Dashboard</h1>
-    <p id="welcomeMessage">Loading...</p>
-    <button id="logoutButton">Logout</button>
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="index.html">Code Editor</a>
+            <ul class="navbar-nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="editor.html">Editor</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <h1>Welcome to Your Dashboard</h1>
+        <p class="welcome-message" id="welcomeMessage">Loading...</p>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h4>Activity Overview</h4>
+                <p>Track your coding progress and recent activity in one place.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-project-diagram"></i>
+                <h4>My Projects</h4>
+                <p>Access and manage your saved projects seamlessly.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-user-friends"></i>
+                <h4>Collaborate</h4>
+                <p>Invite others to work on projects with you in real time.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-book"></i>
+                <h4>Learning Resources</h4>
+                <p>Discover tutorials, tips, and guides to enhance your skills.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h4>Cloud Sync</h4>
+                <p>Save your work to the cloud and access it from anywhere.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cog"></i>
+                <h4>Settings</h4>
+                <p>Customize your preferences for an optimal experience.</p>
+            </div>
+        </section>
+
+        <button id="logoutButton">Logout</button>
+    </main>
 
     <script src="./scripts/dashboard.js" type="module"></script>
 </body>
