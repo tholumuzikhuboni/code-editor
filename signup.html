@@ -5,37 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Online Code Editor</title>
-    <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto Mono', monospace;
-            background-color: #f8f9fa;
-        }
-
-        .form-container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .btn-success {
-            background-color: #28a745;
-            border: none;
-        }
-
-        .btn-success:hover {
-            background-color: #218838;
-        }
-    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
 </head>
 
 <body>
@@ -55,16 +27,12 @@
                 <input type="password" id="password" class="form-control" placeholder="Create a password" required>
             </div>
             <button type="submit" class="btn btn-success btn-block">Sign Up</button>
-            <p class="text-center mt-3">
-                Already have an account? <a href="login.html">Login</a>
-            </p>
+            <p class="text-center mt-3">Already have an account? <a href="login.html">Login</a></p>
         </form>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
     <script>
-        // Firebase config
+        // Firebase configuration
         const firebaseConfig = {
   apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
   authDomain: "code-editor-efd72.firebaseapp.com",
@@ -74,41 +42,35 @@
   appId: "1:28165650101:web:16c852e94780ac5f11b0fc",
   measurementId: "G-82HBJ4TR9S"
 };
+
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
         // Handle form submission
         document.getElementById('signupForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default form submission
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const name = document.getElementById('name').value;
 
-            // Sign up user with Firebase
+            // Firebase sign up
             firebase.auth().createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
-                    // User signed up successfully
                     const user = userCredential.user;
-                    // Update user profile with name
-                    user.updateProfile({
-                        displayName: name
-                    }).then(() => {
-                        // Redirect to login page or show success message
-                        alert('Account created successfully');
-                        window.location.href = 'login.html';
-                    }).catch((error) => {
-                        console.error("Error updating profile: ", error);
-                    });
+                    // Update profile with display name
+                    return user.updateProfile({ displayName: name });
+                })
+                .then(() => {
+                    // Redirect after successful sign-up
+                    alert("Account created successfully!");
+                    window.location.href = 'login.html';  // Redirect to login page
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.error("Error: ", errorCode, errorMessage);
-                    alert("Signup failed: " + errorMessage);
+                    alert("Error: " + error.message);
                 });
         });
     </script>
 </body>
-
 </html>
