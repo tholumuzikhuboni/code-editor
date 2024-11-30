@@ -209,5 +209,22 @@
     </main>
 
     <script src="./scripts/dashboard.js" type="module"></script>
+    <script>
+        // Toggle the dropdown when the profile icon is clicked
+        const profileIcon = document.getElementById('profileIcon');
+        const profileDropdown = document.getElementById('profileDropdown');
+        
+        profileIcon.addEventListener('click', () => {
+            profileDropdown.classList.toggle('open');
+        });
+
+        // Close dropdown when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (!profileIcon.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.classList.remove('open');
+            }
+        });
+    </script>
 </body>
+
 </html>
