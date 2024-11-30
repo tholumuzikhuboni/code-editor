@@ -168,6 +168,84 @@
         <h1>Welcome to Code Editor</h1>
         <p class="welcome-message" id="welcomeMessage">Loading...</p>
 
+         <div class="row">
+            <!-- HTML Editor -->
+            <div class="col-md-4">
+                <div class="editor-container">
+                    <label for="htmlCode" class="text-muted">
+                        <i class="fa-brands fa-html5"></i> HTML Code
+                    </label>
+                    <textarea id="htmlCode" class="editor" placeholder="Write HTML code here..."></textarea>
+                </div>
+            </div>
+
+            <!-- CSS Editor -->
+            <div class="col-md-4">
+                <div class="editor-container">
+                    <label for="cssCode" class="text-muted">
+                        <i class="fa-brands fa-css3-alt"></i> CSS Code
+                    </label>
+                    <textarea id="cssCode" class="editor" placeholder="Write CSS code here..."></textarea>
+                </div>
+            </div>
+
+            <!-- JavaScript Editor -->
+            <div class="col-md-4">
+                <div class="editor-container">
+                    <label for="jsCode" class="text-muted">
+                        <i class="fa-brands fa-js"></i> JavaScript Code
+                    </label>
+                    <textarea id="jsCode" class="editor" placeholder="Write JS code here..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <!-- Action Buttons -->
+            <div class="col text-center">
+                <button class="btn btn-primary" id="runCode">
+                    <i class="fas fa-play"></i> Run Code
+                </button>
+                <button class="btn btn-secondary" id="downloadCode">
+                    <i class="fas fa-download"></i> Download Code
+                </button>
+                <button class="btn btn-secondary" id="formatCode">
+                    <i class="fas fa-align-left"></i> Format Code
+                </button>
+                <button class="btn btn-secondary" id="saveCode">
+                    <i class="fas fa-save"></i> Save Code
+                </button>
+                <button class="btn btn-secondary" id="loadCode">
+                    <i class="fas fa-folder-open"></i> Load Code
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Live Preview -->
+            <div class="col-12">
+                <h3 class="text-center">Live Preview</h3>
+                <iframe id="preview"></iframe>
+            </div>
+        </div>
+
+        <!-- Console Output -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h4 class="text-center">
+                            <i class="fas fa-terminal" style="color: #28a745; margin-right: 10px;"></i>
+                            Console Output
+                        </h4>
+                        <div id="consoleOutput"
+                            style="background-color: #222; color: white; padding: 20px; border-radius: 8px; min-height: 150px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <section class="features">
             <div class="feature-card">
                 <i class="fas fa-chart-line"></i>
