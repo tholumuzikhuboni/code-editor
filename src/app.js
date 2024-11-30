@@ -1,6 +1,3 @@
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-import { auth } from "./scripts/auth.js";
-
 // Get elements from the DOM
 const htmlEditor = document.getElementById('htmlCode');
 const cssEditor = document.getElementById('cssCode');
