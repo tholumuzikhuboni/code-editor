@@ -58,10 +58,11 @@
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            width: 200px;
+            width: 250px;
             display: none;
             flex-direction: column;
             z-index: 2000;
+            padding: 10px;
         }
 
         .profile-dropdown.active {
@@ -69,10 +70,12 @@
         }
 
         .profile-dropdown p {
-            padding: 10px;
             margin: 0;
             font-size: 1rem;
             color: #343a40;
+            word-wrap: break-word;
+            text-align: center;
+            padding: 10px 0;
             border-bottom: 1px solid #ddd;
         }
 
@@ -84,7 +87,8 @@
             cursor: pointer;
             text-align: left;
             width: 100%;
-            border-radius: 0;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
         .profile-dropdown button:hover {
@@ -153,7 +157,7 @@
         <div class="profile-menu">
             <i class="fas fa-user-circle profile-icon" id="profileIcon"></i>
             <div class="profile-dropdown" id="profileDropdown">
-                <p class="welcome-message" id="welcomeMessage">Loading...</p>
+                <p id="userDetails">Loading...</p>
                 <button id="updateDetails">Update Details</button>
                 <button id="logoutButton">Logout</button>
             </div>
@@ -183,8 +187,11 @@
         </section>
     </main>
 
-    <script>
-        // Profile Dropdown Toggle
+    <script type="module">
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { auth } from "./scripts/auth.js";
+
+        // Toggle Profile Dropdown
         const profileIcon = document.getElementById("profileIcon");
         const profileDropdown = document.getElementById("profileDropdown");
 
@@ -192,19 +199,33 @@
             profileDropdown.classList.toggle("active");
         });
 
-        // Update User Details
+        // Fetch User Info
+        const userDetails = document.getElementById("userDetails");
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                userDetails.textContent = user.email || "No user details available";
+            } else {
+                window.location.href = "login.html"; // Redirect to login if not authenticated
+            }
+        });
+
+        // Update Details Button
         document.getElementById("updateDetails").addEventListener("click", () => {
             alert("Update Details feature coming soon!");
         });
 
-        // Logout Button
-        document.getElementById("logoutButton").addEventListener("click", () => {
-            alert("Logging out...");
-            window.location.href = "login.html";
+        // Logout Functionality
+        document.getElementById("logoutButton").addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                alert("Logged out successfully!");
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Logout Error:", error.message);
+                alert("An error occurred while logging out.");
+            }
         });
     </script>
-
-    <script src="./scripts/dashboard.js" type="module"></script>
 </body>
 
 </html>
