@@ -201,9 +201,14 @@
 
         // Fetch User Info
         const userDetails = document.getElementById("userDetails");
+        const welcomeMessage = document.getElementById("welcomeMessage");
+
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                userDetails.textContent = user.email || "No user details available";
+                const userEmail = user.email;
+                // Update both the dropdown and welcome message with the user's email
+                userDetails.textContent = userEmail || "No user details available";
+                welcomeMessage.textContent = `Welcome, ${userEmail}!`;
             } else {
                 window.location.href = "login.html"; // Redirect to login if not authenticated
             }
