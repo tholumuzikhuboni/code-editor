@@ -12,7 +12,15 @@ import {
     reauthenticateWithCredential, 
     EmailAuthProvider 
 } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+import { 
+    getFirestore, 
+    doc, 
+    setDoc, 
+    getDoc, 
+    updateDoc 
+} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
     authDomain: "code-editor-efd72.firebaseapp.com",
@@ -26,19 +34,40 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+const db = getFirestore(app);
 
 console.log("Firebase initialized:", app); // Debugging statement
 
 // Register user
-export async function registerUser(email, password) {
+export async function registerUser(email, password, displayName) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
         console.log("Signup successful:", userCredential);
+
+        // Create a new user profile in Firestore
+        await createUserProfile(user, displayName);
+
         alert("Signup successful!");
         window.location.href = "dashboard.html"; // Redirect after signup
     } catch (error) {
         console.error("Signup error:", error.message);
         alert(error.message); // Show error message
+    }
+}
+
+// Create user profile in Firestore
+async function createUserProfile(user, displayName) {
+    try {
+        const userRef = doc(db, "users", user.uid); // Store user in the 'users' collection
+        await setDoc(userRef, {
+            email: user.email,
+            displayName: displayName || "Anonymous", // If no display name, set to "Anonymous"
+            createdAt: new Date()
+        });
+        console.log("User profile created successfully!");
+    } catch (error) {
+        console.error("Error creating user profile in Firestore:", error.message);
     }
 }
 
@@ -109,5 +138,34 @@ export async function reauthenticateUser(password) {
     } catch (error) {
         console.error("Error reauthenticating:", error.message);
         alert(error.message);
+    }
+}
+
+// Get user profile from Firestore
+export async function getUserProfile(userId) {
+    try {
+        const userRef = doc(db, "users", userId);
+        const userDoc = await getDoc(userRef);
+
+        if (userDoc.exists()) {
+            return userDoc.data(); // Return user data
+        } else {
+            console.log("No such user profile!");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error getting user profile:", error.message);
+        return null;
+    }
+}
+
+// Update user profile in Firestore
+export async function updateUserProfile(userId, updatedData) {
+    try {
+        const userRef = doc(db, "users", userId);
+        await updateDoc(userRef, updatedData);
+        console.log("User profile updated successfully!");
+    } catch (error) {
+        console.error("Error updating user profile:", error.message);
     }
 }
