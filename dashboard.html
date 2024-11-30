@@ -313,6 +313,27 @@
                 </div>
             </div>
         </div>
+
+       <!-- Save and Display Projects -->
+<section class="mt-5">
+    <h2 class="text-center">Save and View Your Projects</h2>
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" id="saveProject">
+                <i class="fas fa-save"></i> Save Project
+            </button>
+        </div>
+    </div>
+
+    <!-- Display Saved Projects -->
+    <div class="mt-4">
+        <h3>Your Saved Projects</h3>
+        <ul id="savedProjects" class="list-group">
+            <!-- Projects will be listed here dynamically -->
+        </ul>
+    </div>
+</section>
+
        </main>
     <script type="module">
         import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
