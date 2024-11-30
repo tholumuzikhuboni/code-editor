@@ -29,9 +29,6 @@
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             background-color: #fff;
-        }
-
-        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,29 +37,62 @@
 
         .navbar-brand {
             font-size: 1.5rem;
-            color: black;
-        }
-
-        .navbar-nav {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar-nav li {
-            margin-left: 15px;
-        }
-
-        .navbar-nav a {
-            text-decoration: none;
-            color: #343a40;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .navbar-nav a:hover {
+            font-weight: bold;
             color: #007bff;
+        }
+
+        .profile-menu {
+            position: relative;
+        }
+
+        .profile-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #343a40;
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 250px;
+            display: none;
+            flex-direction: column;
+            z-index: 2000;
+            padding: 10px;
+        }
+
+        .profile-dropdown.active {
+            display: flex;
+        }
+
+        .profile-dropdown p {
+            margin: 0;
+            font-size: 1rem;
+            color: #343a40;
+            word-wrap: break-word;
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-dropdown button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .profile-dropdown button:hover {
+            background-color: #0056b3;
         }
 
         /* Main content */
@@ -117,36 +147,21 @@
         .feature-card p {
             color: #6c757d;
         }
-
-        /* Logout button */
-        #logoutButton {
-            display: block;
-            margin: 30px auto 0;
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        #logoutButton:hover {
-            background-color: #c82333;
-        }
     </style>
 </head>
 
 <body>
+    <!-- Sticky Header -->
     <header>
-        <nav class="navbar">
-            <span class="navbar-brand">Code Editor</span>
-            <ul class="navbar-nav">
-                <li>
-                    <a href="#" id="profileDropdown">Profile</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="navbar-brand">Code Editor</div>
+        <div class="profile-menu">
+            <i class="fas fa-user-circle profile-icon" id="profileIcon"></i>
+            <div class="profile-dropdown" id="profileDropdown">
+                <p id="userDetails">Loading...</p>
+                <button id="updateDetails">Update Details</button>
+                <button id="logoutButton">Logout</button>
+            </div>
+        </div>
     </header>
 
     <main class="dashboard-container">
@@ -170,11 +185,47 @@
                 <p>Invite others to work on projects with you in real time.</p>
             </div>
         </section>
-
-        <button id="logoutButton">Logout</button>
     </main>
 
-    <script src="./scripts/dashboard.js" type="module"></script>
+    <script type="module">
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { auth } from "./scripts/auth.js";
+
+        // Toggle Profile Dropdown
+        const profileIcon = document.getElementById("profileIcon");
+        const profileDropdown = document.getElementById("profileDropdown");
+
+        profileIcon.addEventListener("click", () => {
+            profileDropdown.classList.toggle("active");
+        });
+
+        // Fetch User Info
+        const userDetails = document.getElementById("userDetails");
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                userDetails.textContent = user.email || "No user details available";
+            } else {
+                window.location.href = "login.html"; // Redirect to login if not authenticated
+            }
+        });
+
+        // Update Details Button
+        document.getElementById("updateDetails").addEventListener("click", () => {
+            alert("Update Details feature coming soon!");
+        });
+
+        // Logout Functionality
+        document.getElementById("logoutButton").addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                alert("Logged out successfully!");
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Logout Error:", error.message);
+                alert("An error occurred while logging out.");
+            }
+        });
+    </script>
 </body>
 
 </html>
