@@ -29,57 +29,40 @@
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             background-color: #fff;
-            padding: 10px 20px;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar-brand {
             font-size: 1.5rem;
-            font-weight: bold;
+            color: black;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 15px;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: #343a40;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .navbar-nav a:hover {
             color: #007bff;
-        }
-
-        .profile-container {
-            position: relative;
-        }
-
-        .profile-icon {
-            font-size: 1.5rem;
-            color: #343a40;
-            cursor: pointer;
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 40px;
-            right: 0;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            display: none;
-            width: 200px;
-            z-index: 2000;
-        }
-
-        .dropdown.open {
-            display: block;
-        }
-
-        .dropdown-item {
-            padding: 10px 15px;
-            font-size: 0.9rem;
-            color: #343a40;
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .dropdown-item:hover {
-            background-color: #f1f1f1;
         }
 
         /* Main content */
@@ -156,18 +139,14 @@
 
 <body>
     <header>
-        <div class="navbar">
-            <div class="navbar-brand">Code Editor</div>
-            <div class="profile-container">
-                <i class="fas fa-user-circle profile-icon" id="profileIcon"></i>
-                <div class="dropdown" id="profileDropdown">
-                    <div class="dropdown-item" id="userEmail">Loading...</div>
-                    <div class="dropdown-item" id="updateEmail">Update Email</div>
-                    <div class="dropdown-item" id="resetPassword">Reset Password</div>
-                    <div class="dropdown-item" id="logoutButton">Logout</div>
-                </div>
-            </div>
-        </div>
+        <nav class="navbar">
+            <span class="navbar-brand">Code Editor</span>
+            <ul class="navbar-nav">
+                <li>
+                    <a href="#" id="profileDropdown">Profile</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main class="dashboard-container">
@@ -190,41 +169,12 @@
                 <h4>Collaborate</h4>
                 <p>Invite others to work on projects with you in real time.</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-book"></i>
-                <h4>Learning Resources</h4>
-                <p>Discover tutorials, tips, and guides to enhance your skills.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <h4>Cloud Sync</h4>
-                <p>Save your work to the cloud and access it from anywhere.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-cog"></i>
-                <h4>Settings</h4>
-                <p>Customize your preferences for an optimal experience.</p>
-            </div>
         </section>
+
+        <button id="logoutButton">Logout</button>
     </main>
 
     <script src="./scripts/dashboard.js" type="module"></script>
-    <script>
-        // Toggle the dropdown when the profile icon is clicked
-        const profileIcon = document.getElementById('profileIcon');
-        const profileDropdown = document.getElementById('profileDropdown');
-        
-        profileIcon.addEventListener('click', () => {
-            profileDropdown.classList.toggle('open');
-        });
-
-        // Close dropdown when clicking outside of it
-        window.addEventListener('click', (event) => {
-            if (!profileIcon.contains(event.target) && !profileDropdown.contains(event.target)) {
-                profileDropdown.classList.remove('open');
-            }
-        });
-    </script>
 </body>
 
 </html>
