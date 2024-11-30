@@ -281,71 +281,7 @@
                 </div>
             </div>
         </div>
-
-        <section class="features">
-            <div class="feature-card">
-                <i class="fas fa-chart-line"></i>
-                <h4>Activity Overview</h4>
-                <p>Track your coding progress and recent activity in one place.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-project-diagram"></i>
-                <h4>My Projects</h4>
-                <p>Access and manage your saved projects seamlessly.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-user-friends"></i>
-                <h4>Collaborate</h4>
-                <p>Invite others to work on projects with you in real time.</p>
-            </div>
-        </section>
-    </main>
-
-    <script type="module">
-        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-        import { auth } from "./scripts/auth.js";
-
-        // Toggle Profile Dropdown
-        const profileIcon = document.getElementById("profileIcon");
-        const profileDropdown = document.getElementById("profileDropdown");
-
-        profileIcon.addEventListener("click", () => {
-            profileDropdown.classList.toggle("active");
-        });
-
-        // Fetch User Info
-        const userDetails = document.getElementById("userDetails");
-        const welcomeMessage = document.getElementById("welcomeMessage");
-
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const userEmail = user.email;
-                // Update both the dropdown and welcome message with the user's email
-                userDetails.textContent = userEmail || "No user details available";
-                welcomeMessage.textContent = `Welcome, ${userEmail}!`;
-            } else {
-                window.location.href = "login.html"; // Redirect to login if not authenticated
-            }
-        });
-
-        // Update Details Button
-        document.getElementById("updateDetails").addEventListener("click", () => {
-            alert("Update Details feature coming soon!");
-        });
-
-        // Logout Functionality
-        document.getElementById("logoutButton").addEventListener("click", async () => {
-            try {
-                await signOut(auth);
-                alert("Logged out successfully!");
-                window.location.href = "index.html";
-            } catch (error) {
-                console.error("Logout Error:", error.message);
-                alert("An error occurred while logging out.");
-            }
-        });
-    </script>
-    <script>
+        <script>
 // Get elements from the DOM
 const htmlEditor = document.getElementById('htmlCode');
 const cssEditor = document.getElementById('cssCode');
@@ -504,7 +440,72 @@ const defaultJS = `console.log('Hello, World!');`;
 htmlCM.setValue(defaultHTML);
 cssCM.setValue(defaultCSS);
 jsCM.setValue(defaultJS);
-   </script>
+</script>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h4>Activity Overview</h4>
+                <p>Track your coding progress and recent activity in one place.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-project-diagram"></i>
+                <h4>My Projects</h4>
+                <p>Access and manage your saved projects seamlessly.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-user-friends"></i>
+                <h4>Collaborate</h4>
+                <p>Invite others to work on projects with you in real time.</p>
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { auth } from "./scripts/auth.js";
+
+        // Toggle Profile Dropdown
+        const profileIcon = document.getElementById("profileIcon");
+        const profileDropdown = document.getElementById("profileDropdown");
+
+        profileIcon.addEventListener("click", () => {
+            profileDropdown.classList.toggle("active");
+        });
+
+        // Fetch User Info
+        const userDetails = document.getElementById("userDetails");
+        const welcomeMessage = document.getElementById("welcomeMessage");
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const userEmail = user.email;
+                // Update both the dropdown and welcome message with the user's email
+                userDetails.textContent = userEmail || "No user details available";
+                welcomeMessage.textContent = `Welcome, ${userEmail}!`;
+            } else {
+                window.location.href = "login.html"; // Redirect to login if not authenticated
+            }
+        });
+
+        // Update Details Button
+        document.getElementById("updateDetails").addEventListener("click", () => {
+            alert("Update Details feature coming soon!");
+        });
+
+        // Logout Functionality
+        document.getElementById("logoutButton").addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                alert("Logged out successfully!");
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Logout Error:", error.message);
+                alert("An error occurred while logging out.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>
