@@ -1,5 +1,17 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+import { 
+    initializeApp 
+} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    signOut, 
+    onAuthStateChanged, 
+    updateEmail, 
+    sendPasswordResetEmail, 
+    reauthenticateWithCredential, 
+    EmailAuthProvider 
+} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
@@ -64,4 +76,38 @@ export function checkUserState(callback) {
             window.location.href = "login.html"; // Redirect to login if not logged in
         }
     });
+}
+
+// Update user's email
+export async function updateUserEmail(newEmail) {
+    try {
+        await updateEmail(auth.currentUser, newEmail);
+        alert("Email updated successfully!");
+    } catch (error) {
+        console.error("Error updating email:", error.message);
+        alert(error.message);
+    }
+}
+
+// Send password reset email
+export async function resetPassword() {
+    try {
+        await sendPasswordResetEmail(auth, auth.currentUser.email);
+        alert("Password reset email sent!");
+    } catch (error) {
+        console.error("Error resetting password:", error.message);
+        alert(error.message);
+    }
+}
+
+// Reauthenticate user (for secure actions like updating email)
+export async function reauthenticateUser(password) {
+    try {
+        const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
+        await reauthenticateWithCredential(auth.currentUser, credential);
+        alert("Reauthentication successful!");
+    } catch (error) {
+        console.error("Error reauthenticating:", error.message);
+        alert(error.message);
+    }
 }
