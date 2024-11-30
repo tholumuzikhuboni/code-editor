@@ -17,10 +17,7 @@ import {
     doc, 
     setDoc, 
     getDoc, 
-    updateDoc, 
-    collection, 
-    addDoc, 
-    getDocs 
+    updateDoc 
 } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
 // Firebase configuration
@@ -170,54 +167,5 @@ export async function updateUserProfile(userId, updatedData) {
         console.log("User profile updated successfully!");
     } catch (error) {
         console.error("Error updating user profile:", error.message);
-    }
-}
-
-// Save project to Firestore
-export async function saveProject(htmlCode, cssCode, jsCode) {
-    const user = auth.currentUser;
-    if (!user) {
-        alert("You need to be logged in to save your project.");
-        return;
-    }
-
-    try {
-        const docRef = await addDoc(collection(db, "projects"), {
-            userId: user.uid,
-            htmlCode: htmlCode,
-            cssCode: cssCode,
-            jsCode: jsCode,
-            createdAt: new Date()
-        });
-        console.log("Project saved with ID:", docRef.id);
-    } catch (error) {
-        console.error("Error saving project:", error);
-        alert("Error saving project. Please try again.");
-    }
-}
-
-// Get all projects of the current user
-export async function getUserProjects() {
-    const user = auth.currentUser;
-    if (!user) {
-        alert("You need to be logged in to view your projects.");
-        return [];
-    }
-
-    try {
-        const projectsQuery = await getDocs(collection(db, "projects"));
-        const userProjects = [];
-
-        projectsQuery.forEach((doc) => {
-            if (doc.data().userId === user.uid) {
-                userProjects.push(doc.data());
-            }
-        });
-
-        return userProjects;
-    } catch (error) {
-        console.error("Error getting projects:", error);
-        alert("Error getting projects. Please try again.");
-        return [];
     }
 }
