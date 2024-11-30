@@ -9,6 +9,23 @@ const formatButton = document.getElementById('formatCode');
 const saveButton = document.getElementById('saveCode');
 const loadButton = document.getElementById('loadCode');
 
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD8kL3cEoh2t_QuiHqk0x21BNV9knd01rU",
+  authDomain: "code-editor-efd72.firebaseapp.com",
+  projectId: "code-editor-efd72",
+  storageBucket: "code-editor-efd72.firebasestorage.app",
+  messagingSenderId: "28165650101",
+  appId: "1:28165650101:web:16c852e94780ac5f11b0fc",
+  measurementId: "G-82HBJ4TR9S"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firestore
+const db = getFirestore(app);
+
 // Initialize CodeMirror editors with syntax highlighting
 const htmlCM = CodeMirror.fromTextArea(htmlEditor, {
     mode: "htmlmixed",
@@ -75,28 +92,60 @@ function formatCode() {
     jsCM.setValue(js_beautify(jsCM.getValue(), { indent_size: 2 }));
 }
 
-// Function to save the code to local storage
+// Function to save the code to Firestore
 function saveCode() {
-    localStorage.setItem("htmlCode", htmlCM.getValue());
-    localStorage.setItem("cssCode", cssCM.getValue());
-    localStorage.setItem("jsCode", jsCM.getValue());
-    alert("Code saved successfully!");
+    const htmlContent = htmlCM.getValue();
+    const cssContent = cssCM.getValue();
+    const jsContent = jsCM.getValue();
+
+    // Get the user ID (you should have authentication set up)
+    const userId = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "guest";
+
+    // Save to Firestore
+    addDoc(collection(db, "user_codes"), {
+        userId: userId,
+        htmlCode: htmlContent,
+        cssCode: cssContent,
+        jsCode: jsContent,
+        timestamp: new Date() // Optional: save the time the code was saved
+    })
+    .then(() => {
+        alert("Code saved successfully!");
+    })
+    .catch((error) => {
+        console.error("Error saving code: ", error);
+        alert("Failed to save code!");
+    });
 }
 
-// Function to load the code from local storage
+// Function to load the code from Firestore
 function loadCode() {
-    const savedHTML = localStorage.getItem("htmlCode");
-    const savedCSS = localStorage.getItem("cssCode");
-    const savedJS = localStorage.getItem("jsCode");
+    const userId = firebase.auth().currentUser ? firebase.auth().currentUser.uid : "guest";
 
-    if (savedHTML || savedCSS || savedJS) {
-        htmlCM.setValue(savedHTML || "");
-        cssCM.setValue(savedCSS || "");
-        jsCM.setValue(savedJS || "");
-        alert("Code loaded successfully!");
-    } else {
-        alert("No saved code found!");
-    }
+    // Retrieve the latest saved code from Firestore for the current user
+    const userCodesRef = collection(db, "user_codes");
+    const q = query(userCodesRef, where("userId", "==", userId), orderBy("timestamp", "desc"), limit(1));
+
+    getDocs(q)
+        .then((querySnapshot) => {
+            if (!querySnapshot.empty) {
+                const doc = querySnapshot.docs[0];
+                const data = doc.data();
+
+                // Set the loaded code into the editors
+                htmlCM.setValue(data.htmlCode);
+                cssCM.setValue(data.cssCode);
+                jsCM.setValue(data.jsCode);
+
+                alert("Code loaded successfully!");
+            } else {
+                alert("No saved code found!");
+            }
+        })
+        .catch((error) => {
+            console.error("Error loading code: ", error);
+            alert("Failed to load code!");
+        });
 }
 
 // Function to autocomplete HTML tags
