@@ -198,6 +198,11 @@
         .feature-card p {
             color: #6c757d;
         }
+
+        .completed span {
+            text-decoration: line-through;
+            color: gray;
+        }
     </style>
 </head>
 
@@ -313,6 +318,20 @@
                 </div>
             </div>
         </div>
+        <section class="task-list mt-5">
+    <h2 class="text-center">Task List</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input type="text" id="taskInput" class="form-control" placeholder="Enter a new task...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" id="addTaskButton">Add Task</button>
+                </div>
+            </div>
+            <ul class="list-group" id="taskList"></ul>
+        </div>
+    </div>
+</section>
        </main>
     <script type="module">
         import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
@@ -357,6 +376,40 @@
                 alert("An error occurred while logging out.");
             }
         });
+    </script>
+    <script>
+
+       const taskInput = document.getElementById("taskInput");
+const addTaskButton = document.getElementById("addTaskButton");
+const taskList = document.getElementById("taskList");
+
+addTaskButton.addEventListener("click", () => {
+    const taskText = taskInput.value.trim();
+    if (taskText) {
+        const taskItem = document.createElement("li");
+        taskItem.className = "list-group-item d-flex justify-content-between align-items-center";
+        taskItem.innerHTML = `
+            <span>${taskText}</span>
+            <div>
+                <button class="btn btn-success btn-sm completeTask">✔</button>
+                <button class="btn btn-danger btn-sm deleteTask">✖</button>
+            </div>
+        `;
+        taskList.appendChild(taskItem);
+        taskInput.value = "";
+
+        // Mark as Complete
+        taskItem.querySelector(".completeTask").addEventListener("click", () => {
+            taskItem.classList.toggle("completed");
+        });
+
+        // Delete Task
+        taskItem.querySelector(".deleteTask").addEventListener("click", () => {
+            taskList.removeChild(taskItem);
+        });
+    }
+});
+
     </script>
     <!-- Bootstrap JS and custom JavaScript -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
