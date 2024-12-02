@@ -463,66 +463,57 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 
     </script>
 <script>
-// Get references to DOM elements
-const snippetTitleInput = document.getElementById("snippetTitleInput");
-const snippetCodeInput = document.getElementById("snippetCodeInput");
-const saveSnippetButton = document.getElementById("saveSnippetButton");
+// References to DOM elements
+const snippetInput = document.getElementById("snippetInput");
+const addSnippetButton = document.getElementById("addSnippetButton");
 const snippetList = document.getElementById("snippetList");
 
-// Load snippets from local storage
+// Load snippets from local storage and render them
 function loadSnippets() {
     const snippets = JSON.parse(localStorage.getItem("snippets")) || [];
-    snippets.forEach(snippet => addSnippetToDOM(snippet.title, snippet.code));
+    snippets.forEach(snippet => addSnippetToDOM(snippet));
 }
 
 // Save snippets to local storage
-function saveSnippets() {
+function saveSnippetsToLocalStorage() {
     const snippets = [];
-    snippetList.querySelectorAll(".snippet-card").forEach(snippetCard => {
-        snippets.push({
-            title: snippetCard.querySelector(".snippet-title").textContent,
-            code: snippetCard.querySelector(".snippet-code").textContent
-        });
+    snippetList.querySelectorAll(".snippet-item").forEach(snippetItem => {
+        snippets.push(snippetItem.querySelector(".snippet-content").textContent);
     });
     localStorage.setItem("snippets", JSON.stringify(snippets));
 }
 
 // Add a snippet to the DOM
-function addSnippetToDOM(title, code) {
-    const snippetCard = document.createElement("div");
-    snippetCard.className = "snippet-card card mb-3";
-    snippetCard.innerHTML = `
-        <div class="card-body">
-            <h5 class="card-title snippet-title">${title}</h5>
-            <pre class="snippet-code" style="background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto;">${code}</pre>
-            <button class="btn btn-danger btn-sm deleteSnippet">Delete</button>
-        </div>
+function addSnippetToDOM(snippet) {
+    const snippetItem = document.createElement("li");
+    snippetItem.className = "list-group-item snippet-item d-flex justify-content-between align-items-start";
+    snippetItem.innerHTML = `
+        <pre class="mb-0 snippet-content" style="white-space: pre-wrap; word-wrap: break-word;">${snippet}</pre>
+        <button class="btn btn-sm btn-danger delete-snippet">Delete</button>
     `;
 
-    // Add event listener for the delete button
-    snippetCard.querySelector(".deleteSnippet").addEventListener("click", () => {
-        snippetList.removeChild(snippetCard);
-        saveSnippets();
+    // Add delete functionality
+    snippetItem.querySelector(".delete-snippet").addEventListener("click", () => {
+        snippetList.removeChild(snippetItem);
+        saveSnippetsToLocalStorage();
     });
 
-    snippetList.appendChild(snippetCard);
+    snippetList.appendChild(snippetItem);
 }
 
-// Save a new snippet
-saveSnippetButton.addEventListener("click", () => {
-    const title = snippetTitleInput.value.trim();
-    const code = snippetCodeInput.value.trim();
-    if (title && code) {
-        addSnippetToDOM(title, code);
-        saveSnippets();
-        snippetTitleInput.value = "";
-        snippetCodeInput.value = "";
+// Handle adding a new snippet
+addSnippetButton.addEventListener("click", () => {
+    const snippet = snippetInput.value.trim();
+    if (snippet) {
+        addSnippetToDOM(snippet);
+        saveSnippetsToLocalStorage();
+        snippetInput.value = ""; // Clear the input after saving
     } else {
-        alert("Please provide both a title and code.");
+        alert("Please enter a code snippet before saving.");
     }
 });
 
-// Load snippets on page load
+// Load snippets when the page is loaded
 document.addEventListener("DOMContentLoaded", loadSnippets);
 </script>
     <!-- Bootstrap JS and custom JavaScript -->
