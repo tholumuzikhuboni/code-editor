@@ -254,45 +254,6 @@
     <main class="dashboard-container">
         <h1>Welcome to Code Editor</h1>
         <p class="welcome-message" id="welcomeMessage">Loading...</p>
-      <section class="settings mt-5">
-    <h2 class="text-center">Themes and Settings</h2>
-    <p class="text-muted text-center">Customize your editor's theme, font size, and behavior.</p>
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h5>Select Theme</h5>
-            <select id="themeSelector" class="form-control mb-3">
-                <option value="default">Light</option>
-                <option value="dracula">Dark (Dracula)</option>
-            </select>
-
-            <h5>Font Size</h5>
-            <input type="range" id="fontSizeSlider" min="10" max="30" value="16" class="form-control mb-3">
-            <label for="fontSizeSlider">Font Size: <span id="fontSizeLabel">16px</span></label>
-        </div>
-    </div>
-</section>
-
-<script>
-    // Theme and Font Size functionality
-    document.getElementById('themeSelector').addEventListener('change', function() {
-        const theme = this.value;
-        if (theme === 'dracula') {
-            document.querySelector('link[href*="dracula"]').disabled = false;
-            document.querySelector('link[href*="light"]').disabled = true;
-        } else {
-            document.querySelector('link[href*="dracula"]').disabled = true;
-            document.querySelector('link[href*="light"]').disabled = false;
-        }
-    });
-
-    document.getElementById('fontSizeSlider').addEventListener('input', function() {
-        const fontSize = this.value;
-        document.querySelectorAll('.editor').forEach(editor => {
-            editor.style.fontSize = `${fontSize}px`;
-        });
-        document.getElementById('fontSizeLabel').textContent = `${fontSize}px`;
-    });
-</script>
         <section class="features">
             <div class="feature-card">
                 <i class="fas fa-chart-line"></i>
