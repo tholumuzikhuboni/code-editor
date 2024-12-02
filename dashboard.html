@@ -378,37 +378,69 @@
         });
     </script>
     <script>
-
-       const taskInput = document.getElementById("taskInput");
+         // Get references to DOM elements
+const taskInput = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTaskButton");
 const taskList = document.getElementById("taskList");
 
+// Load tasks from local storage
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.forEach(task => addTaskToDOM(task.text, task.completed));
+}
+
+// Save tasks to local storage
+function saveTasks() {
+    const tasks = [];
+    taskList.querySelectorAll("li").forEach(taskItem => {
+        tasks.push({
+            text: taskItem.querySelector("span").textContent,
+            completed: taskItem.classList.contains("completed")
+        });
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Add a task to the DOM
+function addTaskToDOM(taskText, isCompleted = false) {
+    const taskItem = document.createElement("li");
+    taskItem.className = `list-group-item d-flex justify-content-between align-items-center ${
+        isCompleted ? "completed" : ""
+    }`;
+    taskItem.innerHTML = `
+        <span>${taskText}</span>
+        <div>
+            <button class="btn btn-success btn-sm completeTask">✔</button>
+            <button class="btn btn-danger btn-sm deleteTask">✖</button>
+        </div>
+    `;
+
+    // Add event listeners for buttons
+    taskItem.querySelector(".completeTask").addEventListener("click", () => {
+        taskItem.classList.toggle("completed");
+        saveTasks();
+    });
+
+    taskItem.querySelector(".deleteTask").addEventListener("click", () => {
+        taskList.removeChild(taskItem);
+        saveTasks();
+    });
+
+    taskList.appendChild(taskItem);
+}
+
+// Add a new task
 addTaskButton.addEventListener("click", () => {
     const taskText = taskInput.value.trim();
     if (taskText) {
-        const taskItem = document.createElement("li");
-        taskItem.className = "list-group-item d-flex justify-content-between align-items-center";
-        taskItem.innerHTML = `
-            <span>${taskText}</span>
-            <div>
-                <button class="btn btn-success btn-sm completeTask">✔</button>
-                <button class="btn btn-danger btn-sm deleteTask">✖</button>
-            </div>
-        `;
-        taskList.appendChild(taskItem);
+        addTaskToDOM(taskText);
+        saveTasks();
         taskInput.value = "";
-
-        // Mark as Complete
-        taskItem.querySelector(".completeTask").addEventListener("click", () => {
-            taskItem.classList.toggle("completed");
-        });
-
-        // Delete Task
-        taskItem.querySelector(".deleteTask").addEventListener("click", () => {
-            taskList.removeChild(taskItem);
-        });
     }
 });
+
+// Load tasks on page load
+document.addEventListener("DOMContentLoaded", loadTasks);
 
     </script>
     <!-- Bootstrap JS and custom JavaScript -->
