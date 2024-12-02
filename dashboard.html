@@ -203,6 +203,13 @@
             text-decoration: line-through;
             color: gray;
         }
+
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 
@@ -332,6 +339,18 @@
         </div>
     </div>
 </section>
+<section class="snippet-library mt-5">
+    <h2 class="text-center">Code Snippet Library</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="mb-3">
+                <textarea id="snippetInput" class="form-control" rows="3" placeholder="Enter your code snippet here..."></textarea>
+            </div>
+            <button class="btn btn-primary mb-3" id="addSnippetButton">Save Snippet</button>
+            <ul class="list-group" id="snippetList"></ul>
+        </div>
+    </div>
+</section>
        </main>
     <script type="module">
         import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
@@ -443,6 +462,69 @@ addTaskButton.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", loadTasks);
 
     </script>
+<script>
+// Get references to DOM elements
+const snippetTitleInput = document.getElementById("snippetTitleInput");
+const snippetCodeInput = document.getElementById("snippetCodeInput");
+const saveSnippetButton = document.getElementById("saveSnippetButton");
+const snippetList = document.getElementById("snippetList");
+
+// Load snippets from local storage
+function loadSnippets() {
+    const snippets = JSON.parse(localStorage.getItem("snippets")) || [];
+    snippets.forEach(snippet => addSnippetToDOM(snippet.title, snippet.code));
+}
+
+// Save snippets to local storage
+function saveSnippets() {
+    const snippets = [];
+    snippetList.querySelectorAll(".snippet-card").forEach(snippetCard => {
+        snippets.push({
+            title: snippetCard.querySelector(".snippet-title").textContent,
+            code: snippetCard.querySelector(".snippet-code").textContent
+        });
+    });
+    localStorage.setItem("snippets", JSON.stringify(snippets));
+}
+
+// Add a snippet to the DOM
+function addSnippetToDOM(title, code) {
+    const snippetCard = document.createElement("div");
+    snippetCard.className = "snippet-card card mb-3";
+    snippetCard.innerHTML = `
+        <div class="card-body">
+            <h5 class="card-title snippet-title">${title}</h5>
+            <pre class="snippet-code" style="background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto;">${code}</pre>
+            <button class="btn btn-danger btn-sm deleteSnippet">Delete</button>
+        </div>
+    `;
+
+    // Add event listener for the delete button
+    snippetCard.querySelector(".deleteSnippet").addEventListener("click", () => {
+        snippetList.removeChild(snippetCard);
+        saveSnippets();
+    });
+
+    snippetList.appendChild(snippetCard);
+}
+
+// Save a new snippet
+saveSnippetButton.addEventListener("click", () => {
+    const title = snippetTitleInput.value.trim();
+    const code = snippetCodeInput.value.trim();
+    if (title && code) {
+        addSnippetToDOM(title, code);
+        saveSnippets();
+        snippetTitleInput.value = "";
+        snippetCodeInput.value = "";
+    } else {
+        alert("Please provide both a title and code.");
+    }
+});
+
+// Load snippets on page load
+document.addEventListener("DOMContentLoaded", loadSnippets);
+</script>
     <!-- Bootstrap JS and custom JavaScript -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
