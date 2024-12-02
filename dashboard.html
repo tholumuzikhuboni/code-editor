@@ -454,54 +454,6 @@
         </div>
     </div>
 </section>
-<section class="community-projects mt-5">
-    <h2 class="text-center">Community Projects</h2>
-    <p class="text-muted text-center">Explore and get inspired by amazing community projects.</p>
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h5>Featured Projects</h5>
-            <div class="row">
-                <!-- Project 1 -->
-                <div class="col-md-4">
-                    <div class="project-card shadow-sm p-3 mb-4 rounded">
-                        <h6>Project 1</h6>
-                        <p>An open-source web app to help developers manage tasks.</p>
-                        <div class="d-flex align-items-center">
-                            <a href="https://github.com/project1" target="_blank" class="btn btn-outline-primary btn-sm">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="col-md-4">
-                    <div class="project-card shadow-sm p-3 mb-4 rounded">
-                        <h6>Project 2</h6>
-                        <p>A simple personal blog built with React and Node.js.</p>
-                        <div class="d-flex align-items-center">
-                            <a href="https://github.com/project2" target="_blank" class="btn btn-outline-primary btn-sm">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-md-4">
-                    <div class="project-card shadow-sm p-3 mb-4 rounded">
-                        <h6>Project 3</h6>
-                        <p>Real-time chat app built with Socket.io and Express.js.</p>
-                        <div class="d-flex align-items-center">
-                            <a href="https://github.com/project3" target="_blank" class="btn btn-outline-primary btn-sm">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="task-list mt-5">
     <h2 class="text-center">Task List</h2>
     <p class="text-muted mb-3 text-center">
@@ -558,7 +510,7 @@
                 const userEmail = user.email;
                 // Update both the dropdown and welcome message with the user's email
                 userDetails.textContent = userEmail || "No user details available";
-                welcomeMessage.textContent = `Hello 👋, ${userEmail}!`;
+                welcomeMessage.textContent = `Hello👋, ${userEmail}!`;
             } else {
                 window.location.href = "login.html"; // Redirect to login if not authenticated
             }
