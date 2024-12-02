@@ -341,6 +341,9 @@
 </section>
 <section class="snippet-library mt-5">
     <h2 class="text-center">Code Snippet Library</h2>
+    <p class="text-muted mb-3">
+        Use the Code Snippet Library to save and manage reusable code snippets. The snippets are saved in your browser's local storage and preserved even when the page is refreshed. You can safely store HTML, CSS, JavaScript, or any other text without rendering it as output.
+    </p>
     <div class="card shadow-sm">
         <div class="card-body">
             <div class="mb-3">
@@ -468,6 +471,13 @@ const snippetInput = document.getElementById("snippetInput");
 const addSnippetButton = document.getElementById("addSnippetButton");
 const snippetList = document.getElementById("snippetList");
 
+// Escape HTML for safe display in the DOM
+function escapeHTML(html) {
+    const div = document.createElement("div");
+    div.innerText = html;
+    return div.innerHTML;
+}
+
 // Load snippets from local storage and render them
 function loadSnippets() {
     const snippets = JSON.parse(localStorage.getItem("snippets")) || [];
@@ -478,7 +488,7 @@ function loadSnippets() {
 function saveSnippetsToLocalStorage() {
     const snippets = [];
     snippetList.querySelectorAll(".snippet-item").forEach(snippetItem => {
-        snippets.push(snippetItem.querySelector(".snippet-content").textContent);
+        snippets.push(snippetItem.dataset.snippet);
     });
     localStorage.setItem("snippets", JSON.stringify(snippets));
 }
@@ -487,8 +497,9 @@ function saveSnippetsToLocalStorage() {
 function addSnippetToDOM(snippet) {
     const snippetItem = document.createElement("li");
     snippetItem.className = "list-group-item snippet-item d-flex justify-content-between align-items-start";
+    snippetItem.dataset.snippet = snippet; // Store the raw snippet in the dataset for saving
     snippetItem.innerHTML = `
-        <pre class="mb-0 snippet-content" style="white-space: pre-wrap; word-wrap: break-word;">${snippet}</pre>
+        <pre class="mb-0 snippet-content" style="white-space: pre-wrap; word-wrap: break-word;">${escapeHTML(snippet)}</pre>
         <button class="btn btn-sm btn-danger delete-snippet">Delete</button>
     `;
 
