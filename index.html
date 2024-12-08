@@ -90,21 +90,20 @@
             margin-bottom: 20px;
         }
 
-        .hero-section p {
-            font-size: 1.2rem;
-            color: #6c757d;
-            margin-bottom: 30px;
-        }
-
-       /* Ensure proper spacing */
-.button-container {
-    display: inline-flex; /* Align buttons horizontally */
-    justify-content: center; /* Center the buttons */
-    gap: 20px; /* Space between buttons */
+        /* Hero Section */
+.hero-section {
+    background-color: #f7f7f7;
+    padding: 50px 0;
 }
 
-.cta-btn {
-    padding: 10px 20px;
+.hero-section .cta-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 30px; /* Custom spacing between the buttons */
+}
+
+.hero-section .cta-btn {
+    padding: 12px 25px;
     font-size: 16px;
     text-decoration: none;
     border-radius: 5px;
@@ -112,15 +111,25 @@
     color: white;
     display: flex;
     align-items: center;
+    transition: background-color 0.3s ease;
 }
 
-.cta-btn i {
-    margin-right: 8px; 
+.hero-section .cta-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
 
-        /* Features Section */
-        .features-section {
-            padding: 60px 0;
-        }
+.hero-section .cta-btn i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+/* Optional: Add styles for smaller screens */
+@media (max-width: 768px) {
+    .hero-section .cta-buttons {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        gap: 15px; /* Reduce gap on smaller screens */
+    }
+}
+
 
         .feature-item {
             text-align: center;
@@ -251,16 +260,7 @@
                 <i class="fas fa-trophy me-2"></i> Challenges
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contact-us.html">
-                <i class="fas fa-palette me-2"></i> Code Palettes
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="community.html">
-                <i class="fas fa-users me-2"></i> Community
-            </a>
-        </li>
+       
         <li class="nav-item">
             <a class="nav-link" href="contact-us.html">
                 <i class="fas fa-envelope me-2"></i> Contact
@@ -271,7 +271,6 @@
         </div>
     </nav>
 </header>
-
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="container text-center">
@@ -279,17 +278,18 @@
         <p>Write, run, and experiment with HTML, CSS, and JavaScript code in real-time. Perfect for learning or
             rapid development!</p>
 
-        <!-- Two buttons with added spacing -->
-        <div class="button-container">
+        <!-- Two buttons with custom spacing -->
+        <div class="cta-buttons">
             <a href="login.html" class="cta-btn">
-                <i class="fas fa-sign-in-alt me-2"></i> Login
+                <i class="fas fa-sign-in-alt"></i> Login
             </a>
-            <a href="signup.html" class="cta-btn ms-3">
-                <i class="fas fa-user-plus me-2"></i> Sign Up
+            <a href="signup.html" class="cta-btn">
+                <i class="fas fa-user-plus"></i> Sign Up
             </a>
         </div>
     </div>
 </section>
+
 
     <!-- Features Section -->
     <section class="features-section text-center">
