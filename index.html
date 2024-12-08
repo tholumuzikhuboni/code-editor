@@ -570,66 +570,91 @@
                     </ul>
                 </div>
             </div>
-            <div class="container mt-5">
-                <h2 class="text-center">Sign Up for Our Newsletter</h2>
-                <p class="text-center">Stay updated with the latest news and updates.</p>
-                <form action="script" method="POST" class="mt-4" id="newsletterForm">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="firstName">First Name</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" id="firstName" placeholder="Tholumuzi"
-                                    name="firstName" required>
-                            </div>
-                            <div class="invalid-feedback">
-                                Please provide your first name.
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="lastName">Last Name</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" id="lastName" placeholder="Khuboni"
-                                    name="lastName" required>
-                            </div>
-                            <div class="invalid-feedback">
-                                Please provide your last name.
-                            </div>
-                        </div>
+           <div class="container mt-5">
+    <h2 class="text-center">Sign Up for Our Newsletter</h2>
+    <p class="text-center">Stay updated with the latest news and updates.</p>
+    <form action="script" method="POST" class="mt-4" id="newsletterForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="example@example.com" required>
-                        </div>
-                        <div class="invalid-feedback">
-                            Please provide a valid email address.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-                            <label class="form-check-label" for="agreeTerms">I agree to receive emails and
-                                updates.</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Sign Up
-                    </button>
-                </form>
-                <div class="alert alert-success mt-4 d-none" id="successMessage">
-                    Thank you for signing up! We'll keep you updated.
+                    <input type="text" class="form-control" id="firstName" placeholder="Tholumuzi" name="firstName" required>
+                </div>
+                <div class="invalid-feedback">
+                    Please provide your first name.
                 </div>
             </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="lastName" placeholder="Khuboni" name="lastName" required>
+                </div>
+                <div class="invalid-feedback">
+                    Please provide your last name.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com" required>
+            </div>
+            <div class="invalid-feedback">
+                Please provide a valid email address.
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                <label class="form-check-label" for="agreeTerms">I agree to receive emails and updates.</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Sign Up
+        </button>
+    </form>
+    <div class="alert alert-success mt-4 d-none" id="successMessage">
+        Thank you for signing up! We'll keep you updated.
+    </div>
+</div>
+
+<style>
+    /* Adjusting the input fields' size */
+    .form-control {
+        font-size: 14px;
+        padding: 10px 15px; /* Reduce padding */
+    }
+
+    /* Preventing the submit button from taking full width */
+    #submitBtn {
+        width: auto; /* Override btn-block to prevent full width */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+
+    /* Making sure the first and last name are on separate lines on medium and large screens */
+    @media (max-width: 767px) {
+        .form-row {
+            flex-direction: column;
+        }
+    }
+
+    /* Optional: Adjust input field widths for medium and large screens */
+    @media (min-width: 768px) {
+        .form-group.col-md-6 {
+            max-width: 100%; /* Ensuring columns behave correctly */
+        }
+    }
+</style>
+
 
             <footer class="footer mt-5 bg-light py-3">
                 <div class="container text-center">
@@ -672,83 +697,6 @@
                         }
                     });
                 });
-            </script>
-            <script>
-            // Import Firebase
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-
-// Initialize Firebase Authentication
-const auth = getAuth();
-
-// Select the navigation links container
-const navLinks = document.getElementById('navLinks');
-
-// Listen for authentication state changes
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is logged in
-        navLinks.innerHTML = `
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="editor.html">Editor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="resources.html">Resources</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="documentation.html">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="challenges.html">Challenges</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact-us.html">Code Palettes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="community.html">Community</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact-us.html">Contact</a>
-            </li>
-        `;
-    } else {
-        // User is not logged in
-        navLinks.innerHTML = `
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Login/Signup</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="editor.html">Editor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="resources.html">Resources</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="documentation.html">Documentation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="challenges.html">Challenges</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact-us.html">Code Palettes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="community.html">Community</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact-us.html">Contact</a>
-            </li>
-        `;
-    }
-});
             </script>
             <script type="module" src="scripts/auth.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
