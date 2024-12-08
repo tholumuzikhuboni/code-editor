@@ -96,20 +96,26 @@
             margin-bottom: 30px;
         }
 
-        .cta-btn {
-            font-size: 1.25rem;
-            padding: 12px 30px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-        }
+       /* Ensure proper spacing */
+.button-container {
+    display: inline-flex; /* Align buttons horizontally */
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Space between buttons */
+}
 
-        .cta-btn:hover {
-            background-color: #218838;
-            transition: background-color 0.3s ease;
-        }
+.cta-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.cta-btn i {
+    margin-right: 8px; 
 
         /* Features Section */
         .features-section {
