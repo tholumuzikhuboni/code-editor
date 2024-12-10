@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto Mono', monospace;
@@ -21,45 +22,155 @@
             margin: 0;
         }
 
-        .form-container {
-            width: 100%;
+        .signup-container {
             max-width: 400px;
-            padding: 20px;
+            width: 100%;
             background: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
         }
 
-        .btn-success {
-            background-color: #28a745;
-            border: none;
+        .signup-container h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+            color: #000;
         }
 
-        .btn-success:hover {
+        .signup-container h1 i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .signup-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1.2em;
+        }
+
+        .form-control {
+            padding: 10px 10px 10px 50px;
+            font-size: 16px;
+            border: none;
+            border-bottom: 2px solid #6c757d;
+            border-radius: 0;
+            background-color: transparent;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border: none;
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
             background-color: #218838;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="form-container">
-        <h3 class="text-center mb-4">Signup</h3>
+    <div class="signup-container">
+        <h1><i class="fas fa-user-plus"></i>Sign Up</h1>
+        <p>Create your account to access the online code editor.</p>
         <form id="signupForm">
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
+                <i class="fas fa-envelope"></i>
+                <input type="email" class="form-control" id="signupEmail" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" id="signupPassword" name="password" placeholder="Create a password" required>
             </div>
-            <button type="submit" class="btn btn-success btn-block">Sign Up</button>
-            <p class="text-center mt-3">
-                Already have an account? <a href="login.html">Login</a>
-            </p>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+            <div class="error-message" id="errorMessage">Passwords do not match.</div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-user-check"></i> Sign Up
+            </button>
         </form>
+        <div class="login-link">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
     </div>
-    <script type="module" src="./scripts/signup.js"></script>
-</body>
 
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        const passwordInput = document.getElementById('signupPassword');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const errorMessage = document.getElementById('errorMessage');
+
+        signupForm.addEventListener('submit', (e) => {
+            // Prevent form submission
+            e.preventDefault();
+
+            // Check if passwords match
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Hide error message and proceed
+            errorMessage.style.display = 'none';
+            alert('Signup successful!');
+            signupForm.reset();
+        });
+    </script>
+</body>
 </html>
