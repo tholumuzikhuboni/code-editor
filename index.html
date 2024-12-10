@@ -148,6 +148,34 @@
             font-size: 1rem;
             color: #6c757d;
         }
+        .editor-container {
+    position: relative;
+}
+
+.editor-tabs textarea {
+    width: 100%;
+    height: 150px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.editor-controls button {
+    margin-right: 10px;
+}
+
+.card h4 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#preview {
+    border-radius: 5px;
+}
 
         /* Footer Section */
         .footer {
@@ -364,6 +392,72 @@
             </div>
         </div>
     </section>
+    <!-- Code Editor Demo Section -->
+<section class="code-editor-demo py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Code Editor Demo</h2>
+        <p class="mb-4">Experience our live code editor. Write your HTML, CSS, and JavaScript and see the magic happen!</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="editor-container bg-white shadow p-3 rounded">
+                    <div class="editor-tabs">
+                        <textarea id="htmlCode" class="editor" placeholder="Write HTML code here"></textarea>
+                        <textarea id="cssCode" class="editor" placeholder="Write CSS code here"></textarea>
+                        <textarea id="jsCode" class="editor" placeholder="Write JavaScript code here"></textarea>
+                    </div>
+                    <div class="editor-controls mt-3">
+                        <button id="runCode" class="btn btn-primary"><i class="fas fa-play"></i> Run Code</button>
+                        <button id="downloadCode" class="btn btn-success"><i class="fas fa-download"></i> Download Code</button>
+                        <button id="formatCode" class="btn btn-info"><i class="fas fa-indent"></i> Format Code</button>
+                        <button id="saveCode" class="btn btn-warning"><i class="fas fa-save"></i> Save Code</button>
+                        <button id="loadCode" class="btn btn-secondary"><i class="fas fa-upload"></i> Load Code</button>
+                    </div>
+                    <iframe id="preview" class="mt-4 bg-light w-100" style="height: 300px; border: 1px solid #ddd;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Code Template Library Section -->
+<section class="code-template-library py-5 bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Code Template Library</h2>
+        <p class="mb-4">Start coding faster with ready-made templates. Choose a category to get started!</p>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card bg-primary text-white shadow">
+                    <div class="card-body text-center">
+                        <i class="fab fa-html5 mb-3" style="font-size: 50px;"></i>
+                        <h4>HTML Templates</h4>
+                        <p>Explore pre-built HTML structures for your projects.</p>
+                        <a href="#" class="btn btn-light">Browse Templates</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-success text-white shadow">
+                    <div class="card-body text-center">
+                        <i class="fab fa-css3-alt mb-3" style="font-size: 50px;"></i>
+                        <h4>CSS Templates</h4>
+                        <p>Find stunning CSS designs and layouts.</p>
+                        <a href="#" class="btn btn-light">Browse Templates</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-warning text-white shadow">
+                    <div class="card-body text-center">
+                        <i class="fab fa-js mb-3" style="font-size: 50px;"></i>
+                        <h4>JavaScript Templates</h4>
+                        <p>Discover interactive JavaScript components and examples.</p>
+                        <a href="#" class="btn btn-light">Browse Templates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <section class="features-section text-center">
         <div class="container">
             <h2 class="mb-5">Integrations</h2>
@@ -562,6 +656,7 @@
                             reserved.</a></p>
             </div>
             </footer>
+            <script src="./src/app.js></script>
             <script type="module" src="scripts/auth.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Bootstrap JS and FontAwesome for icons -->
