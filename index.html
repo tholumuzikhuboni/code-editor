@@ -212,6 +212,46 @@
                 font-size: 1rem;
             }
         }
+        /* General Styling */
+.learning-hub {
+    background-color: #f8f9fa;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card img {
+    transition: transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+
+.card h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* HTML Card Styling */
+.html-card {
+    background-color: #f16529;
+    color: white;
+}
+
+/* CSS Card Styling */
+.css-card {
+    background-color: #2965f1;
+    color: white;
+}
+
+/* JavaScript Card Styling */
+.js-card {
+    background-color: #f7df1e;
+    color: black;
+        }
     </style>
 </head>
 
@@ -367,87 +407,89 @@
         </div>
     </section>
     <!-- Quick Start Guide Section -->
-    <section class="quick-start-guide py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="mb-4">Quick Start Guide</h2>
-            <p class="mb-4">Get started with our code editor in just a few simple steps.</p>
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-pencil-fill mb-3 text-success" style="font-size: 40px;"></i>
-                            <h4>Step 1: Write Code</h4>
-                            <p>Open the editor and start writing your HTML, CSS, or JavaScript code in real-time.</p>
-                        </div>
+<section class="quick-start-guide py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Quick Start Guide</h2>
+        <p class="mb-4">Get started with our code editor in just a few simple steps.</p>
+        <div class="row justify-content-center">
+            <!-- Step 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-keyboard mb-3 text-primary" style="font-size: 40px;"></i>
+                        <h4>Step 1: Write Code</h4>
+                        <p>Open the editor and start writing your HTML, CSS, or JavaScript code in real-time.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-eye-fill mb-3 text-success" style="font-size: 40px;"></i>
-                            <h4>Step 2: Preview Your Work</h4>
-                            <p>See live changes instantly. Our editor displays your code's result as you type.</p>
-                        </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-desktop mb-3 text-info" style="font-size: 40px;"></i>
+                        <h4>Step 2: Preview Your Work</h4>
+                        <p>See live changes instantly. Our editor displays your code's result as you type.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-cloud-upload-fill mb-3 text-success" style="font-size: 40px;"></i>
-                            <h4>Step 3: Save or Share</h4>
-                            <p>Once you’re done, save your work or share your code with others to collaborate.</p>
-                        </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-share-alt mb-3 text-success" style="font-size: 40px;"></i>
+                        <h4>Step 3: Save or Share</h4>
+                        <p>Once you’re done, save your work or share your code with others to collaborate.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Learning Hub Section -->
-    <section class="learning-hub py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="mb-4">Learning Hub</h2>
-            <p class="mb-4">Explore tutorials and resources to enhance your skills.</p>
-            <div class="row justify-content-center">
-                <!-- Card 1 - Link to External Learning Platform -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
+<section class="learning-hub py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Learning Hub</h2>
+        <p class="mb-4">Access curated learning resources to enhance your skills in web development.</p>
+        <div class="row justify-content-center">
+            <!-- HTML Card -->
+            <div class="col-md-4 mb-4">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="card-link">
+                    <div class="card shadow-sm border-0 html-card">
                         <div class="card-body text-center">
-                            <i class="bi bi-laptop mb-3 text-success" style="font-size: 40px;"></i>
-                            <h4>Tutorial 1: Frontend Development</h4>
-                            <p>Learn the basics of frontend web development, HTML, CSS, and JavaScript.</p>
-                            <a href="https://www.udemy.com/course/frontend-web-development/" target="_blank"
-                                class="btn btn-primary">Start Learning</a>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Logo" class="mb-3" style="width: 60px;">
+                            <h4 class="text-uppercase">Learn HTML</h4>
+                            <p>Master the structure of web pages with comprehensive HTML resources.</p>
                         </div>
                     </div>
-                </div>
-                <!-- Card 2 - Link to External Learning Platform -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
+                </a>
+            </div>
+            <!-- CSS Card -->
+            <div class="col-md-4 mb-4">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="card-link">
+                    <div class="card shadow-sm border-0 css-card">
                         <div class="card-body text-center">
-                            <i class="bi bi-code-slash mb-3 text-success" style="font-size: 40px;"></i>
-                            <h4>Tutorial 2: Backend Development</h4>
-                            <p>Explore server-side programming, databases, and APIs.</p>
-                            <a href="https://www.coursera.org/learn/backend-development" target="_blank"
-                                class="btn btn-primary">Start Learning</a>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS Logo" class="mb-3" style="width: 60px;">
+                            <h4 class="text-uppercase">Learn CSS</h4>
+                            <p>Enhance your design skills by diving into CSS tutorials and guides.</p>
                         </div>
                     </div>
-                </div>
-                <!-- Card 3 - Link to External Learning Platform -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
+                </a>
+            </div>
+            <!-- JavaScript Card -->
+            <div class="col-md-4 mb-4">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="card-link">
+                    <div class="card shadow-sm border-0 js-card">
                         <div class="card-body text-center">
-                            <i class="bi bi-cloud mb-3 text-success" style="font-size: 40px;"></i>
-                            <h4>Tutorial 3: Cloud Computing</h4>
-                            <p>Understand the fundamentals of cloud services, deployment, and architecture.</p>
-                            <a href="https://www.linkedin.com/learning/cloud-computing" target="_blank"
-                                class="btn btn-primary">Start Learning</a>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" class="mb-3" style="width: 60px;">
+                            <h4 class="text-uppercase">Learn JavaScript</h4>
+                            <p>Get hands-on with JavaScript to build dynamic and interactive web pages.</p>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+                </section>
    
     <!-- Custom CSS for Hover Effect -->
     <style>
