@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Online Code Editor</title>
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
+    <!-- External Styles -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -32,11 +34,9 @@
         }
 
         .signup-container h1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
             color: #000;
         }
 
@@ -47,7 +47,6 @@
 
         .signup-container h1 .code {
             color: #28a745;
-            margin-right: 10px;
         }
 
         .signup-container h1 .editor {
@@ -62,10 +61,23 @@
         }
 
         .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
             margin-bottom: 20px;
         }
 
+        .form-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1.2em;
+        }
+
         .form-control {
+            padding: 10px 10px 10px 50px; /* Padding for icon spacing */
             font-size: 16px;
             border: none;
             border-bottom: 2px solid #6c757d;
@@ -73,6 +85,10 @@
             background-color: transparent;
             outline: none;
             transition: border-color 0.3s;
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
         }
 
         .form-control:focus {
@@ -92,21 +108,6 @@
             background-color: #218838;
         }
 
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
-        .login-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-
         .terms-text {
             text-align: center;
             font-size: 12px;
@@ -122,6 +123,21 @@
         .terms-text a:hover {
             text-decoration: underline;
         }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -131,9 +147,11 @@
         <p>Create your account to access the online code editor.</p>
         <form id="signupForm">
             <div class="form-group">
+                <i class="fas fa-envelope"></i>
                 <input type="email" class="form-control" id="signupEmail" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
+                <i class="fas fa-lock"></i>
                 <input type="password" class="form-control" id="signupPassword" name="password" placeholder="Create a password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">
@@ -149,5 +167,4 @@
     </div>
     <script type="module" src="./scripts/signup.js"></script>
 </body>
-
 </html>
