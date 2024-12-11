@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Project Preview for Code Editor">
+    <title>Portfolio Preview Image</title>
+    <style>
+        /* Set up the container for the preview image */
+        .portfolio-preview {
+            width: 600px;
+            height: 400px;
+            background: #f7f7f7;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Roboto Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Title at the top */
+        .portfolio-preview .title {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Add a snippet of code preview */
+        .portfolio-preview .code-snippet {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            width: 90%;
+            height: 100px;
+            background: #282c34;
+            color: #f8f8f2;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            overflow-y: auto;
+        }
+
+        /* Add icons to showcase functionality */
+        .portfolio-preview .icons {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        .portfolio-preview .icons i {
+            font-size: 30px;
+            color: #28a745;
+        }
+
+        .portfolio-preview .icons i:hover {
+            color: #007bff;
+        }
+
+        /* Button below icons */
+        .portfolio-preview .cta-btn {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .portfolio-preview .cta-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="portfolio-preview">
+        <!-- Title -->
+        <div class="title">Online Code Editor</div>
+
+        <!-- Code Snippet Preview -->
+        <div class="code-snippet">
+            <pre>
+<code>&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+            </pre>
+        </div>
+
+        <!-- Icons Section -->
+        <div class="icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-play"></i>
+            <i class="fas fa-save"></i>
+        </div>
+
+        <!-- Call to Action Button -->
+        <a href="editor.html" class="cta-btn">Try It Now</a>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+ </html>
