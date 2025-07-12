@@ -1,4 +1,4 @@
-# <div align="center">📝 Online Code Editor 📝</div>
+# <div align="center">📝 Online Code Editor</div>
 
 <div align="center">
   <strong>A sleek, modern editor for HTML, CSS, and JavaScript with a real-time preview.</strong>
