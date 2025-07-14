@@ -15,8 +15,8 @@
         body {
             font-family: 'Roboto Mono', monospace;
             background-color: #f8f9fa;
-            /* Added padding-top for the fixed navbar */
-            padding-top: 70px; 
+            /* Space for the fixed navbar */
+            padding-top: 70px;
         }
 
         /* Styles for the sticky navigation bar */
@@ -33,11 +33,21 @@
         .navbar-nav .nav-item .nav-link {
             font-size: 16px;
             font-weight: 500;
-            margin: 0 5px; /* Spacing for nav items */
+            margin: 0 5px;
         }
 
         .navbar-nav .nav-item .nav-link:hover {
             color: #007bff;
+        }
+
+        /* New wrapper to center the form */
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Calculate remaining viewport height */
+            min-height: calc(100vh - 70px); 
+            padding: 2rem 0;
         }
 
         .signup-container {
@@ -47,8 +57,7 @@
             padding: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
-            /* Centered the container with margin */
-            margin: 3rem auto;
+            /* Removed margin as the parent now handles centering */
         }
 
         .signup-container h1 {
@@ -95,7 +104,7 @@
         }
 
         .form-control {
-            padding: 10px 10px 10px 50px; /* Padding for icon spacing */
+            padding: 10px 10px 10px 50px;
             font-size: 16px;
             border: none;
             border-bottom: 2px solid #6c757d;
@@ -176,7 +185,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                             <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.html">
                                 <i class="fas fa-home mr-2"></i>Home
                             </a>
                         </li>
@@ -201,32 +210,33 @@
         </nav>
     </header>
 
-    <div class="signup-container">
-        <h1><i class="fas fa-code"></i><span class="code">Code</span> <span class="editor">Editor</span></h1>
-        <p>Create your account to access the online code editor.</p>
-        <form id="signupForm">
-            <div class="form-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" class="form-control" id="signupEmail" name="email" placeholder="Enter your email"
-                    required>
+    <main class="form-wrapper">
+        <div class="signup-container">
+            <h1><i class="fas fa-code"></i><span class="code">Code</span> <span class="editor">Editor</span></h1>
+            <p>Create your account to access the online code editor.</p>
+            <form id="signupForm">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" class="form-control" id="signupEmail" name="email"
+                        placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" class="form-control" id="signupPassword" name="password"
+                        placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-check"></i> Sign Up
+                </button>
+            </form>
+            <div class="terms-text">
+                By signing up, you agree to our <a href="terms.html" target="_blank">Terms and Conditions</a>.
             </div>
-            <div class="form-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" class="form-control" id="signupPassword" name="password"
-                    placeholder="Create a password" required>
+            <div class="login-link">
+                Already have an account? <a href="login.html">Login</a>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">
-                <i class="fas fa-user-check"></i> Sign Up
-            </button>
-        </form>
-        <div class="terms-text">
-            By signing up, you agree to our <a href="terms.html" target="_blank">Terms and Conditions</a>.
         </div>
-        <div class="login-link">
-            Already have an account? <a href="login.html">Login</a>
-        </div>
-    </div>
-    <script type="module" src="./scripts/signup.js"></script>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
