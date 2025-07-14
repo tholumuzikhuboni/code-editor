@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Online Code Editor</title>
-    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./src/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/images/favicon-16x16.png">
-    <!-- External Styles -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -17,20 +15,40 @@
         body {
             font-family: 'Roboto Mono', monospace;
             background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            /* Added padding-top for the fixed navbar */
+            padding-top: 70px; 
+        }
+
+        /* Styles for the sticky navigation bar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 5px; /* Spacing for nav items */
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #007bff;
         }
 
         .signup-container {
             max-width: 500px;
-            width: 100%;
+            width: 90%;
             background: #fff;
             padding: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
+            /* Centered the container with margin */
+            margin: 3rem auto;
         }
 
         .signup-container h1 {
@@ -142,17 +160,60 @@
 </head>
 
 <body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-code" style="color: #28a745;"></i>
+                    <span style="color: #007bff;">Code</span>
+                    <span style="color: #28a745;">Editor</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                             <a class="nav-link" href="index.html">
+                                <i class="fas fa-home mr-2"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="editor.html">
+                                <i class="fas fa-pencil-alt mr-2"></i>Editor
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Login
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="signup.html">
+                                <i class="fas fa-user-plus mr-2"></i>Sign Up
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="signup-container">
         <h1><i class="fas fa-code"></i><span class="code">Code</span> <span class="editor">Editor</span></h1>
         <p>Create your account to access the online code editor.</p>
         <form id="signupForm">
             <div class="form-group">
                 <i class="fas fa-envelope"></i>
-                <input type="email" class="form-control" id="signupEmail" name="email" placeholder="Enter your email" required>
+                <input type="email" class="form-control" id="signupEmail" name="email" placeholder="Enter your email"
+                    required>
             </div>
             <div class="form-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" class="form-control" id="signupPassword" name="password" placeholder="Create a password" required>
+                <input type="password" class="form-control" id="signupPassword" name="password"
+                    placeholder="Create a password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">
                 <i class="fas fa-user-check"></i> Sign Up
@@ -166,5 +227,11 @@
         </div>
     </div>
     <script type="module" src="./scripts/signup.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
